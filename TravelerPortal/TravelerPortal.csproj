@@ -189,9 +189,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\bright-side.css" />
+    <Content Include="Content\css\base.css" />
     <Content Include="Content\css\reset.css" />
-    <Content Include="Content\img\bg.gif" />
+    <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\clock.gif" />
     <Content Include="Content\img\comment.gif" />
     <Content Include="Content\img\firefox-gray.jpg" />
