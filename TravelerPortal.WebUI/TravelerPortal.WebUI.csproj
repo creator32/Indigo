@@ -115,6 +115,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotogalleryController.cs" />
     <Compile Include="Global.asax.cs">
@@ -128,6 +129,7 @@
     <Content Include="Content\img\bg.png" />
     <Content Include="Content\img\clock.gif" />
     <Content Include="Content\img\comment.gif" />
+    <Content Include="Content\img\favicon-original.png" />
     <Content Include="Content\img\firefox-gray.jpg" />
     <Content Include="Content\img\headerbg.gif" />
     <Content Include="Content\img\headerphoto.jpg" />
@@ -135,33 +137,8 @@
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
     <Content Include="Content\widgets\s-gallery-master\css\styles.css" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-1.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-10.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-11.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-12.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-2.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-3.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-4.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-5.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-6.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-7.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-8.jpg" />
-    <Content Include="Content\widgets\s-gallery-master\images\big-9.jpg" />
     <Content Include="Content\widgets\s-gallery-master\images\controls-dark.png" />
     <Content Include="Content\widgets\s-gallery-master\images\controls-light.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\controls-light2.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-1.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-10.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-11.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-12.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-2.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-3.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-4.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-5.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-6.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-7.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-8.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\small-9.png" />
     <Content Include="Content\widgets\s-gallery-master\index.html" />
     <Content Include="Content\widgets\s-gallery-master\js\plugins.js" />
     <Content Include="Content\widgets\s-gallery-master\js\scripts.js" />
@@ -184,7 +161,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\ViewsCSS\" />
     <Folder Include="Content\js\ViewsJS\" />
-    <Folder Include="Content\platforms\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\widgets\s-gallery-master\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Articles\Articles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Articles\Article.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
