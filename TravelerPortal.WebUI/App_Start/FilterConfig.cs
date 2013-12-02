@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace TravelerPortal
+namespace TravelerPortal.WebUI
 {
     public class FilterConfig
     {

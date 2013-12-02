@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TravelerPortal.Controllers
+namespace TravelerPortal.WebUI.Controllers
 {
     public class HomeController : Controller
     {
