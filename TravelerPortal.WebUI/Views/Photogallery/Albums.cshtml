@@ -7,8 +7,7 @@
 @foreach (var item in Model)
 {
     <div class="thumbnail">
-        <img class="no-border" src="@item.CoverPath" width="60" height="60">
-        <br>
+        <img class="no-border" src="@item.CoverPath" width="140">
         <a href="@Url.Action("album", new { albumId = item.Id })">@item.Name</a>
     </div>
 }

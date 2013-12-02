@@ -4,11 +4,52 @@
 }
 
 <h1 style="margin-left: 0px;">@Model.Name</h1>
-@foreach (var image in Model.AlbumImages)
-{
-    <div class="thumbnail">
-        <img class="no-border" src="@image.Thumbnail" width="60" height="60">
-        <br>
-        <a href="">@image.Name</a>
+<div id="gallery-container">
+    <ul class="items--small no-margin">
+        @foreach (var image in Model.AlbumImages)
+        {
+            <li class="item">
+                <a href="#">
+                    <img src="@image.Thumbnail"/>
+                </a>
+            </li>
+        }
+    </ul>
+    <ul class="items--big no-margin">
+        @foreach (var image in Model.AlbumImages)
+        {
+            <li class="item--big">
+                <a href="#">
+                    <figure>
+                        <img src="@image.Path"/>
+                        <figcaption class="img-caption">@image.Name</figcaption>
+                    </figure>
+                </a>
+            </li>
+        }
+    </ul>
+    <div class="controls">
+        <span class="control icon-arrow-left" data-direction="previous"></span>
+        <span class="control icon-arrow-right" data-direction="next"></span>
+        <span class="grid icon-grid"></span>
+        <span class="fs-toggle icon-fullscreen"></span>
     </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/Content/widgets/s-gallery-master/css/styles.css" />
+}
+
+@section FooterScripts
+{
+    <script src="~/Content/widgets/s-gallery-master/js/plugins.js"></script>
+    <script src="~/Content/widgets/s-gallery-master/js/scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#gallery-container').sGallery({
+                fullScreenEnabled: true
+            });
+        });
+    </script>
 }

@@ -8,6 +8,7 @@
         <EntityContainer Name="TravelerPortalModelStoreContainer">
           <EntitySet Name="Album" EntityType="TravelerPortalModel.Store.Album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AlbumImage" EntityType="TravelerPortalModel.Store.AlbumImage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Article" EntityType="TravelerPortalModel.Store.Article" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.Store.FK_AlbumImage_Album">
             <End Role="Album" EntitySet="Album" />
             <End Role="AlbumImage" EntitySet="AlbumImage" />
@@ -32,6 +33,16 @@
           <Property Name="Path" Type="varchar(max)" Nullable="false" />
           <Property Name="Thumbnail" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="BriefDescriptionPath" Type="varchar(max)" Nullable="false" />
+          <Property Name="DetailedDescriptionPath" Type="varchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Nullable="false" />
+        </EntityType>
         <Association Name="FK_AlbumImage_Album">
           <End Role="Album" Type="TravelerPortalModel.Store.Album" Multiplicity="1" />
           <End Role="AlbumImage" Type="TravelerPortalModel.Store.AlbumImage" Multiplicity="*" />
@@ -51,6 +62,7 @@
         <EntityContainer Name="TravelerPortalEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Albums" EntityType="TravelerPortalModel.Album" />
           <EntitySet Name="AlbumImages" EntityType="TravelerPortalModel.AlbumImage" />
+          <EntitySet Name="Articles" EntityType="TravelerPortalModel.Article" />
           <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.FK_AlbumImage_Album">
             <End Role="Album" EntitySet="Albums" />
             <End Role="AlbumImage" EntitySet="AlbumImages" />
@@ -76,6 +88,16 @@
           <Property Type="String" Name="Path" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Thumbnail" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Album" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="AlbumImage" ToRole="Album" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BriefDescriptionPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DetailedDescriptionPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="7" />
         </EntityType>
         <Association Name="FK_AlbumImage_Album">
           <End Type="TravelerPortalModel.Album" Role="Album" Multiplicity="1" />
@@ -112,6 +134,17 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="TravelerPortalModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="DetailedDescriptionPath" ColumnName="DetailedDescriptionPath" />
+                <ScalarProperty Name="BriefDescriptionPath" ColumnName="BriefDescriptionPath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

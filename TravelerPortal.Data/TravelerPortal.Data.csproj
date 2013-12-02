@@ -55,6 +55,9 @@
     <Compile Include="AlbumImage.cs">
       <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Article.cs">
+      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelerPortalEntities.Context.cs">

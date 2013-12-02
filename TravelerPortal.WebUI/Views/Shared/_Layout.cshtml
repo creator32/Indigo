@@ -1,13 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Traveler Portal</title>
-    @* TODO: add appropriate icon*@
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    @*@Styles.Render("~/Content/css")*@
-    <link rel="stylesheet" type="text/css" href="~/Content/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/css/base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    @RenderStyles()
+    @RenderHeaderScripts()
 </head>
 <body>
     <div id="wrap">
@@ -34,13 +32,13 @@
             <div id="sidebar">
                 <ul class="sidemenu">
                     <li><a href="~/">Главная</a></li>
-                    <li><a href="javascript:void(0)">Программы</a></li>
+                    <li><a href="javascript:notImplementedYet()">Программы</a></li>
                     <li><a href="@Url.Action(string.Empty, "photogallery")">Фотогалерея</a></li>
-                    <li><a href="javascript:void(0)">Статьи</a></li>
-                    <li><a href="javascript:void(0)">Книги</a></li>
-                    <li><a href="javascript:void(0)">Отзывы</a></li>
-                    <li><a href="javascript:void(0)">Цены</a></li>
-                    <li><a href="javascript:void(0)">Контакты</a></li>
+                    <li><a href="javascript:notImplementedYet()">Статьи</a></li>
+                    <li><a href="javascript:notImplementedYet()">Книги</a></li>
+                    <li><a href="javascript:notImplementedYet()">Отзывы</a></li>
+                    <li><a href="javascript:notImplementedYet()">Цены</a></li>
+                    <li><a href="javascript:notImplementedYet()">Контакты</a></li>
                 </ul>
             </div>
             <div id="main">
@@ -48,7 +46,7 @@
             </div>
             <div id="rightbar">
                 <h1>Лента новостей</h1>
-                <p>If you are interested in supporting my work and would like to contribute, you are welcome to make a small donation through the <a href="http://www.styleshout.com/">donate link</a> on my website - it will be a great help and will surely be appreciated.</p>
+                <p class="no-margin">If you are interested in supporting my work and would like to contribute, you are welcome to make a small donation through the <a href="http://www.styleshout.com/">donate link</a> on my website - it will be a great help and will surely be appreciated.</p>
             </div>
         </div>
         <div id="footer">
@@ -63,4 +61,30 @@
         </div>
     </div>
 </body>
+
+@RenderFooterScripts()
+
+@helper RenderStyles()
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/base.css" />
+    @RenderSection("Styles", false)
+}
+
+@helper RenderHeaderScripts()
+{
+    @RenderSection("HeaderScripts", false)
+}
+
+@helper RenderFooterScripts()
+{
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        function notImplementedYet() {
+            alert("Извините за неудобства. Находится в разработке.");
+        };
+    </script>
+    @RenderSection("FooterScripts", false)
+}
+
 </html>

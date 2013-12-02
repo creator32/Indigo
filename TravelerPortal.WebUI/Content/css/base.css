@@ -284,7 +284,7 @@ form.searchform
 #main
 {
 	float: left;
-	margin: 0px 15px;
+	margin: 0px 15px 15px 15px;
 	padding: 0;
 	width: 482px; /*512 - 15 - 15*/
 }
@@ -531,11 +531,10 @@ form.searchform
 /*album thumbnails*/
 .thumbnail
 {
-	float: left;
-	width: 60px;
-	border: 1px solid #999;
-	margin: 0 15px 15px 0;
-	padding: 5px;
+    float: left;
+    width: 140px;
+    margin: 0 15px 15px 0;
+    text-align: center;
 }
 
 .clearboth
