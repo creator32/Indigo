@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="edc407f8247242208451508246ef3a73" Name="Diagram1">
-        <EntityTypeShape EntityType="TravelerPortalModel.Album" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TravelerPortalModel.AlbumImage" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="TravelerPortalModel.FK_AlbumImage_Album" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TravelerPortalModel.Album" Width="1.5" PointX="7.4181957130405092" PointY="16.219925679368863" />
+        <EntityTypeShape EntityType="TravelerPortalModel.AlbumImage" Width="1.5" PointX="3.2058263454613396" PointY="17.643588566055328" />
+        <AssociationConnector Association="TravelerPortalModel.FK_AlbumImage_Album" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

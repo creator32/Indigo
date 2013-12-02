@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using TravelerPortal.Services;
 
 namespace TravelerPortal.WebUI.Controllers
 {
@@ -7,8 +6,7 @@ namespace TravelerPortal.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            var albums = PhotogalleryService.GetAllAlbums();
-            return View(albums);
+            return View();
         }
     }
 }

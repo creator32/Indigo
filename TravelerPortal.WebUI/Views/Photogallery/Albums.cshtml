@@ -1,0 +1,14 @@
+﻿@model TravelerPortal.Data.Album[]
+@{
+    ViewBag.Title = "Photogallery";
+}
+
+<h1 style="margin-left: 0px;">Альбомы</h1>
+@foreach (var item in Model)
+{
+    <div class="thumbnail">
+        <img class="no-border" src="@item.CoverPath" width="60" height="60">
+        <br>
+        <a href="@Url.Action("album", new { albumId = item.Id })">@item.Name</a>
+    </div>
+}

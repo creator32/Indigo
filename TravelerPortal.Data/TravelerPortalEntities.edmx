@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TravelerPortalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TravelerPortalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="TravelerPortalModelStoreContainer">
           <EntitySet Name="Album" EntityType="TravelerPortalModel.Store.Album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AlbumImage" EntityType="TravelerPortalModel.Store.AlbumImage" store:Type="Tables" Schema="dbo" />
@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="CoverPath" Type="varchar(max)" Nullable="false" />
         </EntityType>
@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="AlbumId" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" />
@@ -44,43 +44,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TravelerPortalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TravelerPortalEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Album" EntityType="TravelerPortalModel.Album" />
-          <EntitySet Name="AlbumImage" EntityType="TravelerPortalModel.AlbumImage" />
+          <EntitySet Name="Albums" EntityType="TravelerPortalModel.Album" />
+          <EntitySet Name="AlbumImages" EntityType="TravelerPortalModel.AlbumImage" />
           <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.FK_AlbumImage_Album">
-            <End Role="Album" EntitySet="Album" />
-            <End Role="AlbumImage" EntitySet="AlbumImage" />
+            <End Role="Album" EntitySet="Albums" />
+            <End Role="AlbumImage" EntitySet="AlbumImages" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="CoverPath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="AlbumImage" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="Album" ToRole="AlbumImage" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CoverPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AlbumImages" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="Album" ToRole="AlbumImage" />
         </EntityType>
         <EntityType Name="AlbumImage">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="AlbumId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Thumbnail" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AlbumId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Thumbnail" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Album" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="AlbumImage" ToRole="Album" />
         </EntityType>
         <Association Name="FK_AlbumImage_Album">
-          <End Role="Album" Type="TravelerPortalModel.Album" Multiplicity="1" />
-          <End Role="AlbumImage" Type="TravelerPortalModel.AlbumImage" Multiplicity="*" />
+          <End Type="TravelerPortalModel.Album" Role="Album" Multiplicity="1" />
+          <End Type="TravelerPortalModel.AlbumImage" Role="AlbumImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Album">
               <PropertyRef Name="Id" />
@@ -96,24 +95,24 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TravelerPortalModelStoreContainer" CdmEntityContainer="TravelerPortalEntities">
-          <EntitySetMapping Name="Album">
+          <EntitySetMapping Name="Albums">
             <EntityTypeMapping TypeName="TravelerPortalModel.Album">
               <MappingFragment StoreEntitySet="Album">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CoverPath" ColumnName="CoverPath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AlbumImage">
+          <EntitySetMapping Name="AlbumImages">
             <EntityTypeMapping TypeName="TravelerPortalModel.AlbumImage">
               <MappingFragment StoreEntitySet="AlbumImage">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -131,7 +130,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

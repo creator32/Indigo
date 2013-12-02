@@ -16,13 +16,13 @@ namespace TravelerPortal.Data
     {
         public Album()
         {
-            this.AlbumImage = new HashSet<AlbumImage>();
+            this.AlbumImages = new HashSet<AlbumImage>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
         public string CoverPath { get; set; }
     
-        public virtual ICollection<AlbumImage> AlbumImage { get; set; }
+        public virtual ICollection<AlbumImage> AlbumImages { get; set; }
     }
 }

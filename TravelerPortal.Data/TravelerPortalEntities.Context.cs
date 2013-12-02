@@ -25,7 +25,7 @@ namespace TravelerPortal.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Album> Album { get; set; }
-        public DbSet<AlbumImage> AlbumImage { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<AlbumImage> AlbumImages { get; set; }
     }
 }
