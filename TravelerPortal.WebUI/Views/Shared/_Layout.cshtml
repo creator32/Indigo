@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TravelerPortal.WebUI.Helpers
+@{
     var randomQuote = TravelerPortal.Services.QuotesService.GetRandomQuote();
 }
 <!DOCTYPE html>
@@ -34,14 +35,7 @@
             <img src="~/Content/img/headerphoto.jpg" class="no-border" />
             <div id="sidebar">
                 <ul class="sidemenu">
-                    <li><a href="~/">Главная</a></li>
-                    <li><a href="@Url.RouteUrl("AllAlbums")">Фотогалерея</a></li>
-                    <li><a href="@Url.RouteUrl("AllArticles")">Статьи</a></li>
-                    <li><a href="javascript:notImplemented()">Программы</a></li>
-                    <li><a href="javascript:notImplemented()">Книги</a></li>
-                    <li><a href="javascript:notImplemented()">Отзывы</a></li>
-                    <li><a href="javascript:notImplemented()">Цены</a></li>
-                    <li><a href="javascript:notImplemented()">Контакты</a></li>
+                    @Html.BuildMainMenuItems(Url, (string)ViewBag.ActiveMainMenuItemTitle)
                 </ul>
             </div>
             <div id="main">

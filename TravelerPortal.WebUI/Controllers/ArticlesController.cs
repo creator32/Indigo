@@ -5,6 +5,11 @@ namespace TravelerPortal.WebUI.Controllers
 {
     public class ArticlesController : Controller
     {
+        public ArticlesController()
+        {
+            ViewBag.ActiveMainMenuItemTitle = "Статьи";
+        }
+
         public ActionResult Articles()
         {
             var articles = ArticlesService.GetAllArticles();

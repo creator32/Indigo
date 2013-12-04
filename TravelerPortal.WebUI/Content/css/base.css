@@ -360,7 +360,7 @@ form.searchform
 	height: 18px;
 }
 
-#sidebar ul.sidemenu a:hover
+#sidebar ul.sidemenu a:hover, #sidebar ul.sidemenu li.active a
 {
 	padding: 2px 5px 2px 10px;
 	background: #f2f2f2;

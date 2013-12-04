@@ -5,6 +5,11 @@ namespace TravelerPortal.WebUI.Controllers
 {
     public class PhotogalleryController : Controller
     {
+        public PhotogalleryController()
+        {
+            ViewBag.ActiveMainMenuItemTitle = "Фотогалерея";
+        }
+
         public ActionResult Albums()
         {
             var albums = PhotogalleryService.GetAllAlbums();

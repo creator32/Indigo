@@ -9,6 +9,11 @@ namespace TravelerPortal.WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Main",
+                url: string.Empty,
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
             #region Photogallery
             routes.MapRoute("AllAlbums",
                 url: "photogallery",
@@ -30,11 +35,6 @@ namespace TravelerPortal.WebUI
                 defaults: new { controller = "Articles", action = "Article" }
             );
             #endregion
-
-            routes.MapRoute(null,
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
         }
     }
 }
