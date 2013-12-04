@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="TravelerPortalModel.AlbumImage" Width="1.5" PointX="2.0932611050518513" PointY="13.839055246598578" />
         <EntityTypeShape EntityType="TravelerPortalModel.Article" Width="1.5" PointX="10.669511261707875" PointY="13.294869131080279" />
         <AssociationConnector Association="TravelerPortalModel.FK_AlbumImage_Album" />
+        <EntityTypeShape EntityType="TravelerPortalModel.Quote" Width="1.5" PointX="8.5131880252217815" PointY="19.244262197634328" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var randomQuote = TravelerPortal.Services.QuotesService.GetRandomQuote();
+}
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -24,7 +27,7 @@
             </ul>
             *@
             <div class="wise-words">
-                <p>&quot;Men are disturbed, not by the things that happen, but by their opinion of the things that happen.&quot;</p>
+                <p>&quot;@randomQuote.Text&quot;<br>@randomQuote.Author</p>
             </div>
         </div>
         <div id="content-wrap">

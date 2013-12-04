@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="DbUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quote.cs">
+      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TravelerPortalEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

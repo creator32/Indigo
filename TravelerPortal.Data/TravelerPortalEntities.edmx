@@ -9,6 +9,7 @@
           <EntitySet Name="Album" EntityType="TravelerPortalModel.Store.Album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AlbumImage" EntityType="TravelerPortalModel.Store.AlbumImage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Article" EntityType="TravelerPortalModel.Store.Article" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Quote" EntityType="TravelerPortalModel.Store.Quote" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.Store.FK_AlbumImage_Album">
             <End Role="Album" EntitySet="Album" />
             <End Role="AlbumImage" EntitySet="AlbumImage" />
@@ -43,6 +44,14 @@
           <Property Name="DetailedDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime2" Nullable="false" />
         </EntityType>
+        <EntityType Name="Quote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="varchar(max)" Nullable="false" />
+          <Property Name="Author" Type="varchar(max)" Nullable="false" />
+        </EntityType>
         <Association Name="FK_AlbumImage_Album">
           <End Role="Album" Type="TravelerPortalModel.Store.Album" Multiplicity="1" />
           <End Role="AlbumImage" Type="TravelerPortalModel.Store.AlbumImage" Multiplicity="*" />
@@ -67,6 +76,7 @@
             <End Role="Album" EntitySet="Albums" />
             <End Role="AlbumImage" EntitySet="AlbumImages" />
           </AssociationSet>
+          <EntitySet Name="Quotes" EntityType="TravelerPortalModel.Quote" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -111,6 +121,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Quote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -145,6 +163,15 @@
                 <ScalarProperty Name="DetailedDescriptionPath" ColumnName="DetailedDescriptionPath" />
                 <ScalarProperty Name="BriefDescriptionPath" ColumnName="BriefDescriptionPath" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quotes">
+            <EntityTypeMapping TypeName="TravelerPortalModel.Quote">
+              <MappingFragment StoreEntitySet="Quote">
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
