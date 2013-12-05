@@ -1,7 +1,7 @@
-﻿@model TravelerPortal.Data.Album[]
+﻿@model TravelerPortal.WebUI.Views.Photogallery.AlbumsVM
 
 <h1 style="margin-left: 0px;">Альбомы</h1>
-@foreach (var item in Model)
+@foreach (var item in Model.Albums)
 {
     <div class="thumbnail">
         <img class="no-border" src="@item.CoverPath" width="140">

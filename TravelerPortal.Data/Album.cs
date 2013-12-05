@@ -19,9 +19,10 @@ namespace TravelerPortal.Data
             this.AlbumImages = new HashSet<AlbumImage>();
         }
     
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public string CoverPath { get; set; }
+        public string ExternalId { get; set; }
     
         public virtual ICollection<AlbumImage> AlbumImages { get; set; }
     }

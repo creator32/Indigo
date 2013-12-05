@@ -1,0 +1,22 @@
+﻿<h2>Admin's Area Index</h2>
+
+<form method="post">
+    <textarea></textarea>
+</form>
+
+@section FooterScripts {
+    <script src="~/areas/admin/content/widgets/tinymce/js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript">
+
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist autolink lists link image charmap preview anchor",
+                "searchreplace visualblocks code",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            autosave_ask_before_unload: false
+        });
+    </script>
+}

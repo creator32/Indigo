@@ -1,24 +1,24 @@
-﻿@model TravelerPortal.Data.Album
+﻿@model TravelerPortal.WebUI.Views.Photogallery.AlbumVM
 
 <h1 style="margin-left: 0px;">@Model.Name</h1>
 <div id="gallery-container">
     <ul class="items--small no-margin">
-        @foreach (var image in Model.AlbumImages)
+        @foreach (var image in Model.Images)
         {
             <li class="item">
                 <a href="#">
-                    <img src="@image.Thumbnail"/>
+                    <img src="@image.ThumbnailPath"/>
                 </a>
             </li>
         }
     </ul>
     <ul class="items--big no-margin">
-        @foreach (var image in Model.AlbumImages)
+        @foreach (var image in Model.Images)
         {
             <li class="item--big">
                 <a href="#">
                     <figure>
-                        <img src="@image.Path"/>
+                        <img src="@image.ThumbPath"/>
                         <figcaption class="img-caption">@image.Name</figcaption>
                     </figure>
                 </a>

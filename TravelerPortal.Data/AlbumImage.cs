@@ -14,8 +14,8 @@ namespace TravelerPortal.Data
     
     public partial class AlbumImage
     {
-        public int Id { get; set; }
-        public int AlbumId { get; set; }
+        public long Id { get; set; }
+        public long AlbumId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Path { get; set; }

@@ -115,6 +115,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotogalleryController.cs" />
@@ -123,9 +129,120 @@
     </Compile>
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\MenuItem.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\AlbumImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Photogallery\AlbumsVM.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Photogallery\AlbumVM.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\css\base.css" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\frameworks\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\changelog.txt" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\license.txt" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\img\wline.gif" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="Areas\Admin\Content\widgets\tinymce\LICENSE.TXT" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Web.config" />
+    <Content Include="Areas\Admin\_ViewStart.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Content\css\base.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\img\bg.png" />
@@ -146,6 +263,21 @@
     <Content Include="Content\widgets\s-gallery-master\js\scripts.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Articles\Article.cshtml" />
+    <Content Include="Views\Articles\Articles.cshtml" />
+    <Content Include="Views\Home\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Photogallery\Album.cshtml" />
+    <Content Include="Views\Photogallery\Albums.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -153,17 +285,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\css\ViewsCSS\" />
+    <Folder Include="Areas\Admin\Content\img\" />
+    <Folder Include="Areas\Admin\Content\js\ViewsJS\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\css\ViewsCSS\" />
     <Folder Include="Content\js\ViewsJS\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -183,19 +312,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Photogallery\Albums.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Photogallery\Album.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\widgets\s-gallery-master\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Articles\Articles.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Articles\Article.cshtml" />
+    <Content Include="Views\Articles\Dynamic\1-brief.cshtml" />
+    <Content Include="Views\Articles\Dynamic\1.cshtml" />
+    <Content Include="Views\Articles\Dynamic\2-brief.cshtml" />
+    <Content Include="Views\Articles\Dynamic\2.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

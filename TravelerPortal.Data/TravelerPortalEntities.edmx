@@ -10,7 +10,7 @@
           <EntitySet Name="AlbumImage" EntityType="TravelerPortalModel.Store.AlbumImage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Article" EntityType="TravelerPortalModel.Store.Article" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Quote" EntityType="TravelerPortalModel.Store.Quote" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.Store.FK_AlbumImage_Album">
+          <AssociationSet Name="FK_Album_AlbumImage" Association="TravelerPortalModel.Store.FK_Album_AlbumImage">
             <End Role="Album" EntitySet="Album" />
             <End Role="AlbumImage" EntitySet="AlbumImage" />
           </AssociationSet>
@@ -19,16 +19,17 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="CoverPath" Type="varchar(max)" Nullable="false" />
+          <Property Name="ExternalId" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="AlbumImage">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AlbumId" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="Path" Type="varchar(max)" Nullable="false" />
@@ -52,8 +53,10 @@
           <Property Name="Text" Type="varchar(max)" Nullable="false" />
           <Property Name="Author" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AlbumImage_Album">
-          <End Role="Album" Type="TravelerPortalModel.Store.Album" Multiplicity="1" />
+        <Association Name="FK_Album_AlbumImage">
+          <End Role="Album" Type="TravelerPortalModel.Store.Album" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AlbumImage" Type="TravelerPortalModel.Store.AlbumImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Album">
@@ -72,32 +75,33 @@
           <EntitySet Name="Albums" EntityType="TravelerPortalModel.Album" />
           <EntitySet Name="AlbumImages" EntityType="TravelerPortalModel.AlbumImage" />
           <EntitySet Name="Articles" EntityType="TravelerPortalModel.Article" />
-          <AssociationSet Name="FK_AlbumImage_Album" Association="TravelerPortalModel.FK_AlbumImage_Album">
+          <EntitySet Name="Quotes" EntityType="TravelerPortalModel.Quote" />
+          <AssociationSet Name="FK_Album_AlbumImage" Association="TravelerPortalModel.FK_Album_AlbumImage">
             <End Role="Album" EntitySet="Albums" />
             <End Role="AlbumImage" EntitySet="AlbumImages" />
           </AssociationSet>
-          <EntitySet Name="Quotes" EntityType="TravelerPortalModel.Quote" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CoverPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="AlbumImages" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="Album" ToRole="AlbumImage" />
+          <Property Type="String" Name="ExternalId" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AlbumImages" Relationship="TravelerPortalModel.FK_Album_AlbumImage" FromRole="Album" ToRole="AlbumImage" />
         </EntityType>
         <EntityType Name="AlbumImage">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="AlbumId" Nullable="false" />
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="AlbumId" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Path" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Thumbnail" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Album" Relationship="TravelerPortalModel.FK_AlbumImage_Album" FromRole="AlbumImage" ToRole="Album" />
+          <NavigationProperty Name="Album" Relationship="TravelerPortalModel.FK_Album_AlbumImage" FromRole="AlbumImage" ToRole="Album" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -109,8 +113,18 @@
           <Property Type="String" Name="DetailedDescriptionPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="Created" Nullable="false" Precision="7" />
         </EntityType>
-        <Association Name="FK_AlbumImage_Album">
-          <End Type="TravelerPortalModel.Album" Role="Album" Multiplicity="1" />
+        <EntityType Name="Quote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Album_AlbumImage">
+          <End Type="TravelerPortalModel.Album" Role="Album" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="TravelerPortalModel.AlbumImage" Role="AlbumImage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Album">
@@ -121,15 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Quote">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Author" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -138,6 +144,7 @@
           <EntitySetMapping Name="Albums">
             <EntityTypeMapping TypeName="TravelerPortalModel.Album">
               <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
                 <ScalarProperty Name="CoverPath" ColumnName="CoverPath" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
