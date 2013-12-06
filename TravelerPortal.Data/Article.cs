@@ -19,5 +19,6 @@ namespace TravelerPortal.Data
         public string BriefDescriptionPath { get; set; }
         public string DetailedDescriptionPath { get; set; }
         public System.DateTime Created { get; set; }
+        public bool IsActive { get; set; }
     }
 }

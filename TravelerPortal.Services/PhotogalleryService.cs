@@ -6,6 +6,14 @@ namespace TravelerPortal.Services
 {
     public static class PhotogalleryService
     {
+        public static Album[] GetActiveAlbums()
+        {
+            return DbUtils.DoDbOperation((db) =>
+            {
+                return db.Albums.Where(a => a.IsActive).ToArray();
+            });
+        }
+
         public static Album[] GetAllAlbums()
         {
             return DbUtils.DoDbOperation((db) =>

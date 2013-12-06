@@ -14,7 +14,7 @@ namespace TravelerPortal.WebUI.Controllers
 
         public ActionResult Albums()
         {
-            var albums = PhotogalleryService.GetAllAlbums();
+            var albums = PhotogalleryService.GetActiveAlbums();
             var model = new AlbumsVM();
             model.Albums = albums.Select(a => new TravelerPortal.WebUI.Models.Album { 
                 Id = a.Id,

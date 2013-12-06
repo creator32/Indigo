@@ -23,6 +23,7 @@
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="CoverPath" Type="varchar(max)" Nullable="false" />
           <Property Name="ExternalId" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="AlbumImage">
           <Key>
@@ -44,6 +45,7 @@
           <Property Name="BriefDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="DetailedDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Quote">
           <Key>
@@ -90,6 +92,7 @@
           <Property Type="String" Name="CoverPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ExternalId" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AlbumImages" Relationship="TravelerPortalModel.FK_Album_AlbumImage" FromRole="Album" ToRole="AlbumImage" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
         </EntityType>
         <EntityType Name="AlbumImage">
           <Key>
@@ -112,6 +115,7 @@
           <Property Type="String" Name="BriefDescriptionPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DetailedDescriptionPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="Created" Nullable="false" Precision="7" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
         </EntityType>
         <EntityType Name="Quote">
           <Key>
@@ -144,6 +148,7 @@
           <EntitySetMapping Name="Albums">
             <EntityTypeMapping TypeName="TravelerPortalModel.Album">
               <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
                 <ScalarProperty Name="CoverPath" ColumnName="CoverPath" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -166,6 +171,7 @@
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="TravelerPortalModel.Article">
               <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="DetailedDescriptionPath" ColumnName="DetailedDescriptionPath" />
                 <ScalarProperty Name="BriefDescriptionPath" ColumnName="BriefDescriptionPath" />

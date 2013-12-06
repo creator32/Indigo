@@ -27,7 +27,8 @@ namespace GoogleImagesCrawler
                         {
                             ExternalId = apiAlbum.Id,
                             Name = apiAlbum.AlbumTitle,
-                            CoverPath = entry.Media.Thumbnails[0].Url
+                            CoverPath = entry.Media.Thumbnails[0].Url,
+                            IsActive = false
                         });
                     }
                     db.SaveChanges();

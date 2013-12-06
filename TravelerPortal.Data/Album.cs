@@ -23,6 +23,7 @@ namespace TravelerPortal.Data
         public string Name { get; set; }
         public string CoverPath { get; set; }
         public string ExternalId { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual ICollection<AlbumImage> AlbumImages { get; set; }
     }
