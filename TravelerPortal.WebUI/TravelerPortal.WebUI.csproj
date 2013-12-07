@@ -118,9 +118,12 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs">
+    <Compile Include="Areas\Admin\Controllers\ArticlesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\Admin\Views\Articles\ArticlesVM.cs" />
+    <Compile Include="Areas\Admin\Views\Articles\EditArticleVM.cs" />
+    <Compile Include="Areas\Admin\Views\Articles\SaveArticleVM.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotogalleryController.cs" />
@@ -233,7 +236,7 @@
     <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\themes\modern\theme.min.js" />
     <Content Include="Areas\Admin\Content\widgets\tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Areas\Admin\Content\widgets\tinymce\LICENSE.TXT" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml">
+    <Content Include="Areas\Admin\Views\Articles\Index.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml">
@@ -290,7 +293,6 @@
     <Folder Include="Areas\Admin\Content\css\ViewsCSS\" />
     <Folder Include="Areas\Admin\Content\img\" />
     <Folder Include="Areas\Admin\Content\js\ViewsJS\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\css\ViewsCSS\" />
     <Folder Include="Content\js\ViewsJS\" />
   </ItemGroup>
@@ -319,6 +321,12 @@
     <Content Include="Views\Articles\Dynamic\1.cshtml" />
     <Content Include="Views\Articles\Dynamic\2-brief.cshtml" />
     <Content Include="Views\Articles\Dynamic\2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Articles\Articles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Articles\EditArticle.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

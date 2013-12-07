@@ -1,0 +1,19 @@
+﻿@model TravelerPortal.WebUI.Areas.Admin.Views.Articles.ArticlesVM
+
+<table class="table table-bordered">
+    <tr>
+        <th>№</th>
+        <th>Имя</th>
+        <th>Активность</th>
+        <th>Добавлено</th>
+    </tr>
+    @foreach (var article in Model.Articles)
+    {
+        <tr>
+            <td>@article.Id</td>
+            <td><a href="@Url.RouteUrl("AdminEditArticle", new { articleId = article.Id })">@article.Name</a></td>
+            <td>@article.IsActive</td>
+            <td>@article.Created</td>
+        </tr>
+    }
+</table>

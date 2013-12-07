@@ -7,7 +7,7 @@ namespace GoogleImagesCrawler
     {
         static void Main(string[] args)
         {
-            DbUtils.DoDbOperation(db =>
+            DbUtils.OpenDbContext(db =>
             {
                 // clear Db 
                 var objCtx = ((System.Data.Entity.Infrastructure.IObjectContextAdapter)db).ObjectContext;

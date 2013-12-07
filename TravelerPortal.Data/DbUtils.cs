@@ -8,7 +8,7 @@ namespace TravelerPortal.Data
     /// </summary>
     public static class DbUtils
     {
-        public static T DoDbOperation<T>(Func<TravelerPortalEntities, T> f)
+        public static T OpenDbContext<T>(Func<TravelerPortalEntities, T> f)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace TravelerPortal.Data
             }
         }
 
-        public static void DoDbOperation(Action<TravelerPortalEntities> f)
+        public static void OpenDbContext(Action<TravelerPortalEntities> f)
         {
             try
             {

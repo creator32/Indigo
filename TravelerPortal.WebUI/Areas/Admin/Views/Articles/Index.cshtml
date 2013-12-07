@@ -1,0 +1,27 @@
+﻿<form method="post">
+    <textarea style="height: 500px"></textarea>
+</form>
+
+@section FooterScripts {
+    <script src="~/areas/admin/content/widgets/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                    "advlist autolink autosave link image lists charmap preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code insertdatetime media",
+                    "table contextmenu emoticons template textcolor paste textcolor"
+            ],
+            toolbar1: "newdocument | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+            toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | inserttime preview | forecolor backcolor",
+            toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | visualchars visualblocks",
+            menubar: false,
+            toolbar_items_size: 'small',
+            style_formats: [
+                    { title: 'Bold text', inline: 'b' },
+                    { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+                    { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } }
+            ]
+        });
+    </script>
+}

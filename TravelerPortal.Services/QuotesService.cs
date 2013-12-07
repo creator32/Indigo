@@ -8,7 +8,7 @@ namespace TravelerPortal.Services
     {
         public static Quote GetRandomQuote()
         {
-            return DbUtils.DoDbOperation(db =>
+            return DbUtils.OpenDbContext(db =>
             {
                 var quotesAmount = db.Quotes.Count();
                 var quotesToSkip = new Random().Next(0, quotesAmount - 1);

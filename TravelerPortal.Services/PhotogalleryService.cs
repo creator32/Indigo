@@ -8,7 +8,7 @@ namespace TravelerPortal.Services
     {
         public static Album[] GetActiveAlbums()
         {
-            return DbUtils.DoDbOperation((db) =>
+            return DbUtils.OpenDbContext((db) =>
             {
                 return db.Albums.Where(a => a.IsActive).ToArray();
             });
@@ -16,7 +16,7 @@ namespace TravelerPortal.Services
 
         public static Album[] GetAllAlbums()
         {
-            return DbUtils.DoDbOperation((db) =>
+            return DbUtils.OpenDbContext((db) =>
             {
                 return db.Albums.ToArray();
             });
@@ -24,7 +24,7 @@ namespace TravelerPortal.Services
 
         public static Album GetAlbumWithImages(int albumId)
         {
-            return DbUtils.DoDbOperation((db) =>
+            return DbUtils.OpenDbContext((db) =>
             {
                 return db.Albums.Include(a => a.AlbumImages).First((a) => a.Id == albumId);
             });

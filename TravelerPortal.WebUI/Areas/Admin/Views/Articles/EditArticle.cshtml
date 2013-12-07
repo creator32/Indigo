@@ -1,0 +1,67 @@
+﻿@using TravelerPortal.Services
+@model TravelerPortal.WebUI.Areas.Admin.Views.Articles.EditArticleVM
+
+<form action="@Url.RouteUrl("AdminSaveArticle", new { articleId = Model.Article.Id })" method="post">
+    @Html.HiddenFor(x => x.Article.Id, new { name = "Id" })
+    <table>
+        <tr>
+            <td>Имя</td>
+            <td>@Html.TextBoxFor(x => x.Article.Name, new { name = "Name", style = "width: 350px;" })</td>
+        </tr>
+        <tr>
+            <td>Активность</td>
+            <td>@Html.EditorFor(x => x.Article.IsActive, new { name = "IsActive" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="margin: 5px;" />
+                Краткое описание (<a href="@Url.RouteUrl("AdminPreviewBriefArticle", new { articleId = Model.Article.Id })" target="_blank">предпросмотр</a>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <textarea style="min-height: 250px" id="BriefDescriptionContent" name="BriefDescriptionContent">
+                    @ArticlesService.ReadContentOfArticle(Model.Article, ArticleType.Brief)
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="margin: 5px;" />
+                Подробное описание (<a href="@Url.RouteUrl("AdminPreviewDetailedArticle", new { articleId = Model.Article.Id })" target="_blank">предпросмотр</a>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <textarea style="min-height: 500px" id="DetailedDescriptionContent" name="DetailedDescriptionContent">
+                    @ArticlesService.ReadContentOfArticle(Model.Article, ArticleType.Detailed)
+                </textarea>
+            </td>
+        </tr>
+    </table>
+    <input class="btn btn-primary" type="submit" value="Сохранить">
+</form>
+
+@section FooterScripts {
+    <script src="~/areas/admin/content/widgets/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                    "advlist autolink autosave link image lists charmap preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code insertdatetime media",
+                    "table contextmenu emoticons template textcolor paste textcolor"
+            ],
+            toolbar1: "newdocument | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+            toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | inserttime preview | forecolor backcolor",
+            toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | visualchars visualblocks",
+            menubar: false,
+            toolbar_items_size: 'small',
+            style_formats: [
+                    { title: 'Bold text', inline: 'b' },
+                    { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+                    { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } }
+            ]
+        });
+    </script>
+}
