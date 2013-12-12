@@ -40,6 +40,24 @@ namespace TravelerPortal.WebUI
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
             #endregion
+
+            #region News
+            routes.MapRoute("AllNewsSidebar",
+                url: "news/news-sidebar",
+                defaults: new { controller = "News", action = "NewsSidebar" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            routes.MapRoute("AllNews",
+                url: "news",
+                defaults: new { controller = "News", action = "NewsMiddle" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            routes.MapRoute("NewsById",
+                url: "news/{newsId}",
+                defaults: new { controller = "News", action = "News" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            #endregion
         }
     }
 }

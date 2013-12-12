@@ -29,5 +29,6 @@ namespace TravelerPortal.Data
         public DbSet<AlbumImage> AlbumImages { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }

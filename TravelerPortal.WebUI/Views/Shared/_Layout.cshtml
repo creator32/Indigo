@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traveler Portal</title>
+    <title>Soul&nbsp;Travel</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
     @RenderStyles()
     @RenderHeaderScripts()
@@ -15,8 +15,8 @@
 <body>
     <div id="wrap">
         <div id="header">
-            <h1 id="logo">traveler<span class="green">portal</span></h1>
-            <h2 id="slogan">Put your company slogan here...</h2>
+            <h1 id="logo"><span class="green">soul</span>travel</h1>
+            <h2 id="slogan">путешествие со смыслом<br>путешествие для души</h2>
             @* JUST IN CASE
             <form method="post" class="searchform" action="javascript:void(0)">
                 <p>
@@ -43,13 +43,14 @@
                 @RenderBody()
             </div>
             <div id="rightbar">
-                <h1>Лента новостей</h1>
-                <p class="no-margin">If you are interested in supporting my work and would like to contribute, you are welcome to make a small donation through the <a href="http://www.styleshout.com/">donate link</a> on my website - it will be a great help and will surely be appreciated.</p>
+                <h1>Новости</h1>
+                @*<p class="no-margin"></p>*@
+                @{ Html.RenderAction("NewsSidebar", "News"); }
             </div>
         </div>
         <div id="footer">
             <div class="footer-left">
-                <p class="align-left">&copy; 2013 <strong>TravelerPortal</strong></p>
+                <p class="align-left">&copy;&nbsp;2013&nbsp;<strong>Soul&nbsp;Travel</strong></p>
             </div>
             <div class="footer-right">
                 @* TODO: appropriate links here

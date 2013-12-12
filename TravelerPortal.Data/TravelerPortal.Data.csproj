@@ -59,6 +59,9 @@
       <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DbUtils.cs" />
+    <Compile Include="News.cs">
+      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quote.cs">
       <DependentUpon>TravelerPortalEntities.tt</DependentUpon>

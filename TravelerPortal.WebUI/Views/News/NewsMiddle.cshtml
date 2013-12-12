@@ -1,0 +1,13 @@
+﻿@using System.Configuration;
+@model TravelerPortal.Data.News[]
+
+@foreach (var news in Model)
+{
+    <h1 id="news-id-@news.Id">@news.Name</h1>
+    @:@{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToNews"], news.BriefDescriptionPath), news);}
+    <p class="post-footer align-right">
+        <a href="@Url.RouteUrl("NewsById", new { newsId = news.Id })" class="readmore">Читать дальше</a>
+        <a href="javascript:notImplemented()" class="comments">Комментарии (0)</a>
+        <span class="date">@news.Created</span>
+    </p>
+}

@@ -8,8 +8,6 @@ using TravelerPortal.Shared;
 
 namespace TravelerPortal.Services
 {
-    public enum ArticleType : byte { Brief, Detailed }
-
     public static class ArticlesService
     {
         public static string pathToArticles;
@@ -19,16 +17,16 @@ namespace TravelerPortal.Services
             pathToArticles = ConfigurationManager.AppSettings["pathToArticles"];
         }
 
-        public static string ReadContentOfArticle(Article article, ArticleType articleType)
+        public static string ReadContentOfArticle(Article article, ContentType articleType)
         {
-            var nameOfFile = (articleType == ArticleType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
+            var nameOfFile = (articleType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
             var pathToFile = HttpContext.Current.Server.MapPath(string.Format(@"{0}/{1}", pathToArticles, nameOfFile));
             return File.ReadAllText(pathToFile, Encoding.UTF8);
         }
 
-        private static void WriteContentOfArticle(Article article, ArticleType articleType, string newContent)
+        private static void WriteContentOfArticle(Article article, ContentType articleType, string newContent)
         {
-            var nameOfFile = (articleType == ArticleType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
+            var nameOfFile = (articleType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
             var pathToFile = HttpContext.Current.Server.MapPath(string.Format(@"{0}/{1}", pathToArticles, nameOfFile));
             File.WriteAllText(pathToFile, newContent, Encoding.UTF8);
         }
@@ -73,9 +71,9 @@ namespace TravelerPortal.Services
                 db.SaveChanges();
             });
             if (newBriefContent.HasValue())
-                WriteContentOfArticle(dbArticle, ArticleType.Brief, newBriefContent);
+                WriteContentOfArticle(dbArticle, ContentType.Brief, newBriefContent);
             if (newDetailedContent.HasValue())
-                WriteContentOfArticle(dbArticle, ArticleType.Detailed, newDetailedContent);
+                WriteContentOfArticle(dbArticle, ContentType.Detailed, newDetailedContent);
         }
     }
 }
