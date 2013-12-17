@@ -128,6 +128,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotogalleryController.cs" />
+    <Compile Include="Controllers\TravelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -296,6 +297,7 @@
     <Folder Include="Areas\Admin\Content\js\ViewsJS\" />
     <Folder Include="Content\css\ViewsCSS\" />
     <Folder Include="Content\js\ViewsJS\" />
+    <Folder Include="Views\Travels\Dynamic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -349,6 +351,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\News\Dynamic\2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Travels.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Travel.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

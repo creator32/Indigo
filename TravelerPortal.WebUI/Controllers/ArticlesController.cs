@@ -12,13 +12,13 @@ namespace TravelerPortal.WebUI.Controllers
 
         public ActionResult Articles()
         {
-            var articles = ArticlesService.GetActiveArticles();
+            var articles = ArticlesService.GetActive();
             return View(articles);
         }
 
         public ActionResult Article(int articleId)
         {
-            var article = ArticlesService.GetArticleById(articleId);
+            var article = ArticlesService.GetById(articleId);
             return View(article);
         }
     }

@@ -11,7 +11,7 @@ namespace TravelerPortal.WebUI.Areas.Admin.Controllers
         {
             var model = new ArticlesVM
             {
-                Articles = ArticlesService.GetAllArticles()
+                Articles = ArticlesService.GetAll()
             };
             return View(model);
         }
@@ -20,7 +20,7 @@ namespace TravelerPortal.WebUI.Areas.Admin.Controllers
         {
             var model = new EditArticleVM
             {
-                Article = ArticlesService.GetArticleById(articleId)
+                Article = ArticlesService.GetById(articleId)
             };
             return View(model);
         }
@@ -35,21 +35,21 @@ namespace TravelerPortal.WebUI.Areas.Admin.Controllers
                 Name = model.Article.Name,
                 IsActive = model.Article.IsActive
             };
-            ArticlesService.UpdateArticle(newArticle, model.BriefDescriptionContent, model.DetailedDescriptionContent);
+            ArticlesService.Update(newArticle, model.BriefDescriptionContent, model.DetailedDescriptionContent);
             return RedirectToAction("EditArticle", new { articleId = model.Article.Id });
         }
 
         public ActionResult PreviewBriefArticle(int articleId)
         {
             var articles = new[] { 
-                ArticlesService.GetArticleById(articleId) 
+                ArticlesService.GetById(articleId) 
             };
             return View("~/Views/Articles/Articles.cshtml", articles);
         }
 
         public ActionResult PreviewDetailedArticle(int articleId)
         {
-            var article = ArticlesService.GetArticleById(articleId);
+            var article = ArticlesService.GetById(articleId);
             return View("~/Views/Articles/Article.cshtml", article);
         }
     }

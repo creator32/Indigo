@@ -59,9 +59,11 @@
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DbUtils.cs" />
+    <Compile Include="EntityAdditionalInfo.cs" />
     <Compile Include="Event.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="IHasContentPages.cs" />
     <Compile Include="News.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>

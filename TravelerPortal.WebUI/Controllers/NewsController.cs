@@ -12,20 +12,20 @@ namespace TravelerPortal.WebUI.Controllers
 
         public ActionResult NewsMiddle()
         {
-            var newsList = NewsService.GetActiveNews();
+            var newsList = NewsService.GetActive();
             return View(newsList);
         }
 
         [ChildActionOnly]
         public PartialViewResult NewsSidebar()
         {
-            var newsList = NewsService.GetActiveNews();
+            var newsList = NewsService.GetActive();
             return PartialView(newsList);
         }
 
         public ActionResult News(int newsId)
         {
-            var news = NewsService.GetNewsById(newsId);
+            var news = NewsService.GetById(newsId);
             return View(news);
         }
     }

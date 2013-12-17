@@ -3,13 +3,13 @@ using TravelerPortal.Data;
 
 namespace TravelerPortal.Services
 {
-    public class NewsService : ContentPageBaseService<News>
+    public class TravelsService : ContentPageBaseService<Travel>
     {
         public static new string pathToContentPages
         {
             get
             {
-                return ConfigurationManager.AppSettings["pathToNews"];
+                return ConfigurationManager.AppSettings["pathToTravels"];
             }
         }
     }

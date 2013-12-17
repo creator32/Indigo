@@ -58,6 +58,19 @@ namespace TravelerPortal.WebUI
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
             #endregion
+
+            #region Travels
+            routes.MapRoute("AllTravels",
+                url: "travels",
+                defaults: new { controller = "Travels", action = "Travels" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            routes.MapRoute("TravelById",
+                url: "travel/{travelId}",
+                defaults: new { controller = "Travels", action = "Travel" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            #endregion
         }
     }
 }
