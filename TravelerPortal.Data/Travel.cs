@@ -9,16 +9,22 @@
 
 namespace TravelerPortal.Data
 {
-
-    public partial class AlbumImage
-    {
-        public long Id { get; set; }
-        public long AlbumId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Path { get; set; }
-        public string Thumbnail { get; set; }
+    using System.Collections.Generic;
     
-        public virtual Album Album { get; set; }
+    public partial class Travel
+    {
+        public Travel()
+        {
+            this.Events = new HashSet<Event>();
+        }
+    
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string BriefDescriptionPath { get; set; }
+        public string DetailedDescriptionPath { get; set; }
+        public System.DateTime Created { get; set; }
+        public bool IsActive { get; set; }
+    
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

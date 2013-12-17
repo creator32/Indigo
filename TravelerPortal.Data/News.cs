@@ -9,9 +9,7 @@
 
 namespace TravelerPortal.Data
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class News
     {
         public int Id { get; set; }

@@ -17,16 +17,16 @@ namespace TravelerPortal.Services
             pathToArticles = ConfigurationManager.AppSettings["pathToArticles"];
         }
 
-        public static string ReadContentOfArticle(Article article, ContentType articleType)
+        public static string ReadContentOfArticle(Article article, ContentType contentType)
         {
-            var nameOfFile = (articleType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
+            var nameOfFile = (contentType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
             var pathToFile = HttpContext.Current.Server.MapPath(string.Format(@"{0}/{1}", pathToArticles, nameOfFile));
             return File.ReadAllText(pathToFile, Encoding.UTF8);
         }
 
-        private static void WriteContentOfArticle(Article article, ContentType articleType, string newContent)
+        private static void WriteContentOfArticle(Article article, ContentType contentType, string newContent)
         {
-            var nameOfFile = (articleType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
+            var nameOfFile = (contentType == ContentType.Brief) ? article.BriefDescriptionPath : article.DetailedDescriptionPath;
             var pathToFile = HttpContext.Current.Server.MapPath(string.Format(@"{0}/{1}", pathToArticles, nameOfFile));
             File.WriteAllText(pathToFile, newContent, Encoding.UTF8);
         }
@@ -55,7 +55,7 @@ namespace TravelerPortal.Services
             });
         }
 
-        public static Article GetArticleById(TravelerPortalEntities db, int id)
+        public static Article GetArticleById(SoulTravelEntities db, int id)
         {
             return db.Articles.First(a => a.Id == id);
         }

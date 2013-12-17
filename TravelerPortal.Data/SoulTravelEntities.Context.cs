@@ -9,14 +9,13 @@
 
 namespace TravelerPortal.Data
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TravelerPortalEntities : DbContext
+    public partial class SoulTravelEntities : DbContext
     {
-        public TravelerPortalEntities()
-            : base("name=TravelerPortalEntities")
+        public SoulTravelEntities()
+            : base("name=SoulTravelEntities")
         {
         }
     
@@ -28,7 +27,9 @@ namespace TravelerPortal.Data
         public DbSet<Album> Albums { get; set; }
         public DbSet<AlbumImage> AlbumImages { get; set; }
         public DbSet<Article> Articles { get; set; }
-        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<Event> Events { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
+        public DbSet<Travel> Travels { get; set; }
     }
 }

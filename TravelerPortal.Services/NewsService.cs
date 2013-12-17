@@ -55,7 +55,7 @@ namespace TravelerPortal.Services
             });
         }
 
-        public static News GetNewsById(TravelerPortalEntities db, int id)
+        public static News GetNewsById(SoulTravelEntities db, int id)
         {
             return db.News.First(n => n.Id == id);
         }

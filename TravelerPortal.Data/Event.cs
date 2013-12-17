@@ -10,15 +10,16 @@
 namespace TravelerPortal.Data
 {
 
-    public partial class AlbumImage
+    public partial class Event
     {
-        public long Id { get; set; }
-        public long AlbumId { get; set; }
+        public int Id { get; set; }
+        public int TravelId { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Path { get; set; }
-        public string Thumbnail { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public System.DateTime Created { get; set; }
+        public bool IsActive { get; set; }
     
-        public virtual Album Album { get; set; }
+        public virtual Travel Travel { get; set; }
     }
 }

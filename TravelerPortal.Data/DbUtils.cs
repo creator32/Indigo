@@ -8,11 +8,11 @@ namespace TravelerPortal.Data
     /// </summary>
     public static class DbUtils
     {
-        public static T OpenDbContext<T>(Func<TravelerPortalEntities, T> f)
+        public static T OpenDbContext<T>(Func<SoulTravelEntities, T> f)
         {
             try
             {
-                using (var db = new TravelerPortalEntities())
+                using (var db = new SoulTravelEntities())
                 {
                     return f(db);
                 }
@@ -26,11 +26,11 @@ namespace TravelerPortal.Data
             }
         }
 
-        public static void OpenDbContext(Action<TravelerPortalEntities> f)
+        public static void OpenDbContext(Action<SoulTravelEntities> f)
         {
             try
             {
-                using (var db = new TravelerPortalEntities())
+                using (var db = new SoulTravelEntities())
                 {
                     f(db);
                 }

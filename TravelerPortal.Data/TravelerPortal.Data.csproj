@@ -50,36 +50,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs">
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="AlbumImage.cs">
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Article.cs">
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DbUtils.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="News.cs">
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quote.cs">
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="TravelerPortalEntities.Context.cs">
+    <Compile Include="SoulTravelEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TravelerPortalEntities.Context.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="TravelerPortalEntities.cs">
+    <Compile Include="SoulTravelEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TravelerPortalEntities.tt</DependentUpon>
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="TravelerPortalEntities.Designer.cs">
+    <Compile Include="SoulTravelEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TravelerPortalEntities.edmx</DependentUpon>
+      <DependentUpon>SoulTravelEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Travel.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -91,22 +97,22 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="TravelerPortalEntities.edmx">
+    <EntityDeploy Include="SoulTravelEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TravelerPortalEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>SoulTravelEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="TravelerPortalEntities.Context.tt">
+    <None Include="SoulTravelEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TravelerPortalEntities.edmx</DependentUpon>
-      <LastGenOutput>TravelerPortalEntities.Context.cs</LastGenOutput>
+      <DependentUpon>SoulTravelEntities.edmx</DependentUpon>
+      <LastGenOutput>SoulTravelEntities.Context.cs</LastGenOutput>
     </None>
-    <None Include="TravelerPortalEntities.edmx.diagram">
-      <DependentUpon>TravelerPortalEntities.edmx</DependentUpon>
+    <None Include="SoulTravelEntities.edmx.diagram">
+      <DependentUpon>SoulTravelEntities.edmx</DependentUpon>
     </None>
-    <None Include="TravelerPortalEntities.tt">
+    <None Include="SoulTravelEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TravelerPortalEntities.edmx</DependentUpon>
-      <LastGenOutput>TravelerPortalEntities.cs</LastGenOutput>
+      <DependentUpon>SoulTravelEntities.edmx</DependentUpon>
+      <LastGenOutput>SoulTravelEntities.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
