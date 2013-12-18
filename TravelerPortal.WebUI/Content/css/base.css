@@ -237,6 +237,8 @@ form.searchform
 
     #header h1#logo
     {
+        z-index: 1;
+        text-shadow: 1px 1px 0px #fff;
         position: absolute;
         margin: 0;
         padding: 0;
@@ -249,6 +251,8 @@ form.searchform
 
     #header h2#slogan
     {
+        z-index: 1;
+        text-shadow: 1px 1px 0px #fff;
         position: absolute;
         top: 50px;
         left: 87px;
@@ -267,11 +271,12 @@ form.searchform
 
     #header .wise-words
     {
+        z-index: 1;
+        text-shadow: 1px 1px 0px #fff;
         position: absolute;
         top: 5px;
         right: 5px;
         width: 244px;
-        text-shadow: 0px 0px 3px #fff;
     }
 
         #header .wise-words p

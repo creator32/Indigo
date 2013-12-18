@@ -49,11 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArticlesService.cs" />
-    <Compile Include="ContentPageBaseService.cs" />
-    <Compile Include="ContentType.cs" />
-    <Compile Include="TravelsService.cs" />
-    <Compile Include="NewsService.cs" />
+    <Compile Include="ContentPageServices\ArticlesService.cs" />
+    <Compile Include="ContentPageServices\ContentPageBaseService.cs" />
+    <Compile Include="ContentPageServices\ContentType.cs" />
+    <Compile Include="ContentPageServices\TravelsService.cs" />
+    <Compile Include="ContentPageServices\NewsService.cs" />
+    <Compile Include="EventsService.cs" />
     <Compile Include="PhotogalleryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuotesService.cs" />

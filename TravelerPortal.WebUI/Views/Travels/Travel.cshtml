@@ -1,1 +1,6 @@
-﻿<h2>Travel</h2>
+﻿@using System.Configuration;
+
+@model TravelerPortal.Data.Travel
+
+<h1>@Model.Name</h1>
+@{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToTravels"], Model.DetailedDescriptionPath), Model);}

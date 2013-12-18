@@ -43,7 +43,7 @@ namespace TravelerPortal.WebUI
 
             #region News
             routes.MapRoute("AllNewsSidebar",
-                url: "news/news-sidebar",
+                url: "news/sidebar",
                 defaults: new { controller = "News", action = "NewsSidebar" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
@@ -68,6 +68,14 @@ namespace TravelerPortal.WebUI
             routes.MapRoute("TravelById",
                 url: "travel/{travelId}",
                 defaults: new { controller = "Travels", action = "Travel" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            #endregion
+
+            #region Events
+            routes.MapRoute("AllEventsSidebar",
+                url: "events/sidebar",
+                defaults: new { controller = "Events", action = "EventsSidebar" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
             #endregion

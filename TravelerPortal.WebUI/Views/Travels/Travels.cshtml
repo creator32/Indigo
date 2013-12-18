@@ -1,1 +1,13 @@
-﻿<h2>Travels</h2>
+﻿@using System.Configuration;
+@model TravelerPortal.Data.Travel[]
+
+@foreach (var travel in Model)
+{
+    <h1>@travel.Name</h1>
+    @:@{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToTravels"], travel.BriefDescriptionPath), travel);}
+    <p class="post-footer align-right">
+        <a href="@Url.RouteUrl("TravelById", new { travelId = travel.Id })" class="readmore">Читать дальше</a>
+        <a href="javascript:notImplemented()" class="comments">Комментарии (0)</a>
+        <span class="date">@travel.Created</span>
+    </p>
+}

@@ -125,6 +125,7 @@
     <Compile Include="Areas\Admin\Views\Articles\EditArticleVM.cs" />
     <Compile Include="Areas\Admin\Views\Articles\SaveArticleVM.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhotogalleryController.cs" />
@@ -297,7 +298,6 @@
     <Folder Include="Areas\Admin\Content\js\ViewsJS\" />
     <Folder Include="Content\css\ViewsCSS\" />
     <Folder Include="Content\js\ViewsJS\" />
-    <Folder Include="Views\Travels\Dynamic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -357,6 +357,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Travels\Travel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Dynamic\1-brief.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Dynamic\1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Dynamic\2-brief.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Travels\Dynamic\2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\EventsSidebar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

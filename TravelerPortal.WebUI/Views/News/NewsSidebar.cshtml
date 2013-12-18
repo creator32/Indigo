@@ -6,5 +6,4 @@
     <a href="@string.Format("{0}#news-id-{1}", Url.RouteUrl("AllNews"), news.Id)">
         @{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToNews"], news.BriefDescriptionPath), news);}
     </a>
-    <hr>
 }
