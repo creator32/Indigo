@@ -1,0 +1,54 @@
+﻿@model TravelerPortal.WebUI.Views.Events.CalendarVM
+
+<h1>Расписание мероприятий</h1>
+<br>
+<div class="responsive-calendar">
+    <div class="controls">
+        <a class="pull-left" data-go="prev">
+            <div class="btn"><i class="icon-chevron-left"></i></div>
+        </a>
+        <h4 class="timeInfo"></h4>
+        <a class="pull-right" data-go="next">
+            <div class="btn"><i class="icon-chevron-right"></i></div>
+        </a>
+    </div>
+    <hr />
+    <div class="day-headers">
+        <div class="day header">Пн</div>
+        <div class="day header">Вт</div>
+        <div class="day header">Ср</div>
+        <div class="day header">Чт</div>
+        <div class="day header">Пт</div>
+        <div class="day header">Сб</div>
+        <div class="day header">Вс</div>
+    </div>
+    <div class="days" data-group="days">
+    </div>
+</div>
+
+@section FooterScripts
+{
+    <script src="~/Content/widgets/responsive-calendar-0_4/js/responsive-calendar.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var dateStr = new Date().getFullYear() + "-" + (new Date().getMonth() + 1);
+            $(".responsive-calendar").responsiveCalendar({
+                time: dateStr,
+                events: {
+                    @foreach (var _event in Model.Events)
+                    {
+                        @Html.Raw(string.Format("'{0}': {{ 'url': '{1}' }},", _event.Date.ToString("yyyy-MM-dd"), _event.Url));
+                    }
+                },
+                monthChangeAnimation: false,
+                translateMonths: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декарь"]
+            });
+        });
+    </script>
+}
+
+@section Styles
+{
+    <link href="~/Content/widgets/responsive-calendar-0_4/css/responsive-calendar-bootstrap-combined.min.css" rel="stylesheet" />
+    <link href="~/Content/widgets/responsive-calendar-0_4/css/responsive-calendar.css" rel="stylesheet" />
+}

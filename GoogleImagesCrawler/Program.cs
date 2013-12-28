@@ -10,8 +10,7 @@ namespace GoogleImagesCrawler
             DbUtils.OpenDbContext(db =>
             {
                 // clear Db 
-                var objCtx = ((System.Data.Entity.Infrastructure.IObjectContextAdapter)db).ObjectContext;
-                objCtx.ExecuteStoreCommand("DELETE FROM [Album]");
+                db.Database.ExecuteSqlCommand("DELETE FROM [Album]");
                 // 
                 PicasaService service = new PicasaService("");
                 var feed = default(PicasaFeed);

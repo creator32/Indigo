@@ -138,6 +138,8 @@
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Events\CalendarEventVM.cs" />
+    <Compile Include="Views\Events\CalendarVM.cs" />
     <Compile Include="Views\Photogallery\AlbumsVM.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -261,12 +263,147 @@
     <Content Include="Content\img\page.gif" />
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
-    <Content Include="Content\widgets\s-gallery-master\css\styles.css" />
-    <Content Include="Content\widgets\s-gallery-master\images\controls-dark.png" />
-    <Content Include="Content\widgets\s-gallery-master\images\controls-light.png" />
-    <Content Include="Content\widgets\s-gallery-master\index.html" />
-    <Content Include="Content\widgets\s-gallery-master\js\plugins.js" />
-    <Content Include="Content\widgets\s-gallery-master\js\scripts.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\ajax.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\flash.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-controls-in-heading.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-dark.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-floating-caption.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-floating-thumbs.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-horizontal-strip.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-in-box.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-in-page.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-thumbstrip-above.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-vertical-strip.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-white.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\headline.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\html.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\iframe.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\image-map.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\includes\ajax.htm" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\includes\Flash.swf" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\includes\include-short.htm" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\inline.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\mini-galleries.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\mini-gallery.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\no-border.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\no-outline.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\outer-glow.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\white-10px.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\white-rounded-outline.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\examples\youtube.html" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\close.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\closeX.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar-black-border.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar-text-buttons.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar-white-small.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar-white.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar2.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar3.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar4-hover.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\controlbar4.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\fullexpand.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\geckodimmer.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\icon.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\loader.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\loader.white.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\beveled.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\drop-shadow.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\glossy-dark.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\outer-glow.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\rounded-black.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\rounded-white.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\resize.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\scrollarrows.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\zoomin.cur" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\zoomout.cur" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-full.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-full.min.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-full.packed.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-ie6.css" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-gallery.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-gallery.min.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-gallery.packed.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-html.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-html.min.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide-with-html.packed.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide.css" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide.min.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\highslide.packed.js" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\bukovel_by_andreyevna-d5vhuv4.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\Colorful-ribbons-Abstract_1366x768.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\full-image.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\full6.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery1.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery1.thumb.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery2.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery2.thumb.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery3.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\gallery3.thumb.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\nordic.gif" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumb6.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbnail.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip01.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip01.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip02.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip02.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip03.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip03.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip04.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip04.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip05.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip05.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip06.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip06.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip07.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip07.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip08.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip08.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip09.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip09.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip10.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip10.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip11.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip11.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip12.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip12.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip13.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip13.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip14.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip14.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip15.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip15.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip16.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip16.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip17.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip17.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip18.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip18.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip19.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip19.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip20.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip20.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip21.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip21.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip22.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip22.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip23.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip23.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip24.jpg" />
+    <Content Include="Content\widgets\highslide-4.1.13\images\thumbstrip24.thumb.png" />
+    <Content Include="Content\widgets\highslide-4.1.13\index.htm" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\css\responsive-calendar-bootstrap-combined.min.css" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\css\responsive-calendar.css" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\example\index.html" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\img\concrete.jpg" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\img\glyphicons-halflings.png" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\img\paypal-logo.png" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\bootstrap.js" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\bootstrap.min.js" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\jquery.js" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\responsive-calendar.js" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\responsive-calendar.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Views\Articles\Article.cshtml" />
@@ -315,9 +452,6 @@
       <Project>{b384b48d-8539-4bd6-a89d-d6d5448f47b1}</Project>
       <Name>TravelerPortal.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\widgets\s-gallery-master\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Articles\Dynamic\1-brief.cshtml" />
@@ -372,6 +506,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Events\EventsSidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Events\Calendar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\widgets\responsive-calendar-0_4\css\less\responsive-calendar.less" />
+    <Content Include="Content\widgets\responsive-calendar-0_4\js\coffee\responsive-calendar.coffee" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\widgets\highslide-4.1.13\highslide\graphics\outlines\Outlines.psd" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

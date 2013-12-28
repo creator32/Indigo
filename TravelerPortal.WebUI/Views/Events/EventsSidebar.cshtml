@@ -1,9 +1,9 @@
 ﻿@model TravelerPortal.Data.Event[]
 
-@foreach (var f_event in Model)
+@foreach (var _event in Model)
 {
-    <a href="@Url.RouteUrl("TravelById", new { travelId = f_event.TravelId })">
-        @f_event.Name
+    <a href="@Url.RouteUrl("TravelById", new { travelId = _event.TravelId })">
+        @_event.Name
     </a>
-    <div style="margin-left: 15px;">@f_event.StartDate.ToShortDateString() - @f_event.EndDate.ToShortDateString()</div>
+    <div style="margin-left: 15px;">@_event.StartDate.ToShortDateString() - @_event.EndDate.ToShortDateString()</div>
 }
