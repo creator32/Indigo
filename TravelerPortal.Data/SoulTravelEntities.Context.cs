@@ -9,6 +9,7 @@
 
 namespace TravelerPortal.Data
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -31,5 +32,6 @@ namespace TravelerPortal.Data
         public DbSet<News> News { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Travel> Travels { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

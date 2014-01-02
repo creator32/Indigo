@@ -17,7 +17,7 @@ namespace TravelerPortal.WebUI.Helpers
                 new MenuItem("Статьи", urlHelper.RouteUrl("AllArticles")),
                 new MenuItem("Новости", urlHelper.RouteUrl("AllNews")),
                 new MenuItem("Программы", urlHelper.RouteUrl("AllTravels")),
-                new MenuItem("Книги", "javascript:notImplemented()"),
+                new MenuItem("Книги", urlHelper.RouteUrl("AllBooks")),
                 new MenuItem("Отзывы", "javascript:notImplemented()"),
                 new MenuItem("Цены", "javascript:notImplemented()"),
                 new MenuItem("Контакты", "javascript:notImplemented()")

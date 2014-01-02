@@ -58,6 +58,9 @@
     <Compile Include="Article.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Book.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbUtils.cs" />
     <Compile Include="EntityAdditionalInfo.cs" />
     <Compile Include="Event.cs">

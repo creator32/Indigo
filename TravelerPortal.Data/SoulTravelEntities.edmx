@@ -4,11 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SoulTravelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SoulTravelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SoulTravelModelStoreContainer">
           <EntitySet Name="Album" EntityType="SoulTravelModel.Store.Album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AlbumImage" EntityType="SoulTravelModel.Store.AlbumImage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Article" EntityType="SoulTravelModel.Store.Article" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Book" EntityType="SoulTravelModel.Store.Book" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Event" EntityType="SoulTravelModel.Store.Event" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="News" EntityType="SoulTravelModel.Store.News" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Quote" EntityType="SoulTravelModel.Store.Quote" store:Type="Tables" Schema="dbo" />
@@ -52,6 +53,17 @@
           <Property Name="BriefDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="DetailedDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Author" Type="varchar(max)" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="ThumbnailPath" Type="varchar(max)" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Event">
@@ -124,8 +136,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SoulTravelModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -145,6 +156,7 @@
             <End Role="Travel" EntitySet="Travels" />
             <End Role="Event" EntitySet="Events" />
           </AssociationSet>
+          <EntitySet Name="Books" EntityType="SoulTravelModel.Book" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -252,6 +264,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ThumbnailPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -336,6 +359,18 @@
                 <ScalarProperty Name="DetailedDescriptionPath" ColumnName="DetailedDescriptionPath" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="SoulTravelModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ThumbnailPath" ColumnName="ThumbnailPath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

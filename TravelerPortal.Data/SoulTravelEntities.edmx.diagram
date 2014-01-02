@@ -14,6 +14,7 @@
         <EntityTypeShape EntityType="SoulTravelModel.Travel" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="SoulTravelModel.FK_Album_AlbumImage" ManuallyRouted="false" />
         <AssociationConnector Association="SoulTravelModel.FK_Event_Travel" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SoulTravelModel.Book" Width="1.5" PointX="0.56573344793437674" PointY="25.167263206638054" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

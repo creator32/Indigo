@@ -12,19 +12,13 @@ namespace TravelerPortal.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Album
+    public partial class Book
     {
-        public Album()
-        {
-            this.AlbumImages = new HashSet<AlbumImage>();
-        }
-    
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string CoverPath { get; set; }
-        public string ExternalId { get; set; }
+        public int Id { get; set; }
+        public string Author { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ThumbnailPath { get; set; }
         public bool IsActive { get; set; }
-    
-        public virtual ICollection<AlbumImage> AlbumImages { get; set; }
     }
 }

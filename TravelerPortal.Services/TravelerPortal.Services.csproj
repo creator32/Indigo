@@ -54,6 +54,7 @@
     <Compile Include="ContentPageServices\ContentType.cs" />
     <Compile Include="ContentPageServices\TravelsService.cs" />
     <Compile Include="ContentPageServices\NewsService.cs" />
+    <Compile Include="BooksService.cs" />
     <Compile Include="EventsService.cs" />
     <Compile Include="PhotogalleryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
