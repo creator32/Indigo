@@ -21,6 +21,7 @@ namespace TravelerPortal.Data
         public System.DateTime EndDate { get; set; }
         public System.DateTime Created { get; set; }
         public bool IsActive { get; set; }
+        public int Price_UAH_ { get; set; }
     
         public virtual Travel Travel { get; set; }
     }

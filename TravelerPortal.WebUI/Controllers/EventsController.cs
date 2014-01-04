@@ -14,15 +14,20 @@ namespace TravelerPortal.WebUI.Controllers
             return PartialView(eventsList);
         }
 
-        public ActionResult Calendar()
+        public ActionResult Schedule()
         {
+            ViewBag.ActiveMainMenuItemTitle = "Расписание";
             var activeEvents = EventsService.GetActive();
-            var model = new CalendarVM();
+            var model = new ScheduleVM();
             foreach (var _event in activeEvents)
             {
-                model.Events.Add(new CalendarEventVM()
+                model.Events.Add(new EventVM()
                 {
-                    Date = _event.StartDate,
+                    StartDate = _event.StartDate,
+                    EndDate = _event.EndDate,
+                    Price_UAH_ = _event.Price_UAH_,
+                    Name = _event.Name,
+                    AmountOfDays = (_event.EndDate - _event.StartDate).Days,
                     Url = Url.RouteUrl("TravelById", new { travelId = _event.TravelId })
                 });
             }

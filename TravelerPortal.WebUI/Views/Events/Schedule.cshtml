@@ -1,6 +1,26 @@
-﻿@model TravelerPortal.WebUI.Views.Events.CalendarVM
+﻿@model TravelerPortal.WebUI.Views.Events.ScheduleVM
+@using TravelerPortal.WebUI.Helpers
 
 <h1>Расписание мероприятий</h1>
+<table>
+    @foreach (var eventsGroup in Model.Events.OrderBy(e => e.StartDate).GroupBy(e => e.StartDate.Month))
+    {
+        <tr>
+            <td style="text-align: center; font-weight: bold;" colspan="4"><br>@eventsGroup.First().StartDate.ToString("MMMM")</td>
+        </tr>
+        foreach (var _event in eventsGroup)
+        {
+        <tr>
+            <td style="width: 50%"><a href="@_event.Url">@_event.Name</a></td>
+            <td style="width: 30%; text-align: center;">@_event.StartDate.ToShortDateString()&nbsp;-&nbsp;@_event.EndDate.ToShortDateString()</td>
+            <td style="width: 10%; text-align: center;">@_event.AmountOfDays&nbsp;@Html.GetDeclantionForDaysNumber(_event.AmountOfDays)</td>
+            <td style="width: 10%; text-align: center;">@_event.Price_UAH_&nbsp;грн.</td>
+        </tr>  
+        }
+    }
+</table>
+<br>
+<hr>
 <br>
 <div class="responsive-calendar">
     <div class="controls">
@@ -37,7 +57,7 @@
                 events: {
                     @foreach (var _event in Model.Events)
                     {
-                        @Html.Raw(string.Format("'{0}': {{ 'url': '{1}' }},", _event.Date.ToString("yyyy-MM-dd"), _event.Url));
+                        @Html.Raw(string.Format("'{0}': {{ 'url': '{1}' }},", _event.StartDate.ToString("yyyy-MM-dd"), _event.Url));
                     }
                 },
                 monthChangeAnimation: false,

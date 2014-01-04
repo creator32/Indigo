@@ -78,9 +78,9 @@ namespace TravelerPortal.WebUI
                 defaults: new { controller = "Events", action = "EventsSidebar" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
-            routes.MapRoute("EventCalendar",
-                url: "events/calendar",
-                defaults: new { controller = "Events", action = "Calendar" },
+            routes.MapRoute("EventSchedule",
+                url: "events/schedule",
+                defaults: new { controller = "Events", action = "Schedule" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
             #endregion

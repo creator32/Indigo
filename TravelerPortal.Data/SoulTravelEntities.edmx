@@ -75,6 +75,7 @@
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="Price(UAH)" Type="int" Nullable="false" />
           <Property Name="Created" Type="datetime2" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
@@ -204,6 +205,7 @@
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Travel" Relationship="SoulTravelModel.FK_Event_Travel" FromRole="Event" ToRole="Travel" />
+          <Property Type="Int32" Name="Price_UAH_" Nullable="false" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -319,6 +321,7 @@
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="SoulTravelModel.Event">
               <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Price_UAH_" ColumnName="Price(UAH)" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TravelId" ColumnName="TravelId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

@@ -141,8 +141,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Books\BooksVM.cs" />
     <Compile Include="Views\Books\BookVM.cs" />
-    <Compile Include="Views\Events\CalendarEventVM.cs" />
-    <Compile Include="Views\Events\CalendarVM.cs" />
+    <Compile Include="Views\Events\EventVM.cs" />
+    <Compile Include="Views\Events\ScheduleVM.cs" />
     <Compile Include="Views\Photogallery\AlbumsVM.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -511,7 +511,7 @@
     <Content Include="Views\Events\EventsSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Events\Calendar.cshtml" />
+    <Content Include="Views\Events\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\widgets\responsive-calendar-0_4\css\less\responsive-calendar.less" />

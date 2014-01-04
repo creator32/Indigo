@@ -53,7 +53,7 @@
             <div id="rightbar">
                 <h1>Новости</h1>
                 @{ Html.RenderAction("NewsSidebar", "News", new { area = string.Empty }); }
-                <h1>Мероприятия<a href="@Url.RouteUrl("EventCalendar")" style="float: right; font-size: 12px; color: cornflowerblue; text-decoration: underline; line-height: 23px;">календарь</a></h1>
+                <h1>Мероприятия<a href="@Url.RouteUrl("EventSchedule")" style="float: right; font-size: 12px; color: cornflowerblue; text-decoration: underline; line-height: 23px;">расписание</a></h1>
                 @{ Html.RenderAction("EventsSidebar", "Events", new { area = string.Empty }); }
             </div>
         </div>
