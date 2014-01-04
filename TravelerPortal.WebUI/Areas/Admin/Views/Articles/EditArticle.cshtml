@@ -21,7 +21,7 @@
         <tr>
             <td colspan="2">
                 <textarea style="min-height: 250px" id="BriefDescriptionContent" name="BriefDescriptionContent">
-                    @ArticlesService.ReadContentOfArticle(Model.Article, ContentType.Brief)
+                    @Model.BriefContent
                 </textarea>
             </td>
         </tr>
@@ -34,7 +34,7 @@
         <tr>
             <td colspan="2">
                 <textarea style="min-height: 500px" id="DetailedDescriptionContent" name="DetailedDescriptionContent">
-                    @ArticlesService.ReadContentOfArticle(Model.Article, ContentType.Detailed)
+                    @Model.DetailedContent
                 </textarea>
             </td>
         </tr>

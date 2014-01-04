@@ -7,6 +7,11 @@ namespace TravelerPortal.WebUI.Controllers
 {
     public class BooksController : Controller
     {
+        public BooksController()
+        {
+            ViewBag.ActiveMainMenuItemTitle = "Книги";
+        }
+
         public ActionResult Books()
         {
             var dbBooks = BooksService.GetActive();

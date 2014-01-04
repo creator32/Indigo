@@ -5,20 +5,23 @@ namespace TravelerPortal.WebUI.Controllers
 {
     public class TravelsController : Controller
     {
+        private TravelsService travelsService;
+
         public TravelsController()
         {
+            travelsService = new TravelsService();
             ViewBag.ActiveMainMenuItemTitle = "Программы";
         }
 
         public ActionResult Travels()
         {
-            var travels = TravelsService.GetActive();
+            var travels = travelsService.GetActive();
             return View(travels);
         }
 
         public ActionResult Travel(int travelId)
         {
-            var travel = TravelsService.GetById(travelId);
+            var travel = travelsService.GetById(travelId);
             return View(travel);
         }
     }

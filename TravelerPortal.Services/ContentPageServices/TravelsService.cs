@@ -5,7 +5,7 @@ namespace TravelerPortal.Services
 {
     public class TravelsService : ContentPageBaseService<Travel>
     {
-        public static new string pathToContentPages
+        public override string pathToContentPages
         {
             get
             {
