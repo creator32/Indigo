@@ -13,11 +13,12 @@ namespace TravelerPortal.WebUI.Helpers
             var sb = new StringBuilder();
             var menuItems = new[]{
                 new MenuItem("Главная", urlHelper.RouteUrl("Main")),
-                new MenuItem("Фотогалерея",urlHelper.RouteUrl("AllAlbums")),
+                new MenuItem("Программы",urlHelper.RouteUrl("AllTravels")),
+                new MenuItem("Расписание", urlHelper.RouteUrl("EventCalendar")),
                 new MenuItem("Статьи", urlHelper.RouteUrl("AllArticles")),
-                new MenuItem("Новости", urlHelper.RouteUrl("AllNews")),
-                new MenuItem("Программы", urlHelper.RouteUrl("AllTravels")),
+                new MenuItem("Фотогалерея", urlHelper.RouteUrl("AllAlbums")),
                 new MenuItem("Книги", urlHelper.RouteUrl("AllBooks")),
+                new MenuItem("Новости", urlHelper.RouteUrl("AllNews")),
                 new MenuItem("Отзывы", "javascript:notImplemented()"),
                 new MenuItem("Цены", "javascript:notImplemented()"),
                 new MenuItem("Контакты", "javascript:notImplemented()")
