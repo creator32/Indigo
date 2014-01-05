@@ -65,6 +65,7 @@
           <Property Name="Description" Type="varchar(max)" Nullable="false" />
           <Property Name="ThumbnailPath" Type="varchar(max)" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Uri" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
@@ -276,6 +277,7 @@
           <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ThumbnailPath" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Uri" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -368,6 +370,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="SoulTravelModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Uri" ColumnName="Uri" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="ThumbnailPath" ColumnName="ThumbnailPath" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

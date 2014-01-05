@@ -1,15 +1,26 @@
 ﻿@model TravelerPortal.WebUI.Views.Books.BooksVM
 
+Возможно, Вам понадобится установить <a href="http://get.adobe.com/ru/reader" target="_blank">Adobe Reader</a> для отображения книг в браузере.
+<br>
 <table class="books-table">
     @foreach (var book in Model.Books)
     {
         <tr>
             <td>
-                <img style="max-width: 100px;" src="@book.ThumbnailPath" alt="@book.Title" />
+                <br>
+                <a href="@Url.RouteUrl("ReadBook", new { bookId = book.Id })" target="_blank">
+                    <img style="max-width: 100px;" src="@book.ThumbnailPath" alt="@book.Title" />
+                </a>
             </td>
             <td class="text">
+                <br>
                 <h3>@book.Author.&nbsp;"@book.Title"</h3>
                 <p>@book.Description</p>
+                <div style="text-align: right">
+                    <a href="@Url.RouteUrl("ReadBook", new { bookId = book.Id })" target="_blank">Читать</a>
+                    |
+                    <a href="@Url.RouteUrl("DownloadBook", new { bookId = book.Id })">Загрузить</a>
+                </div>
             </td>
         </tr>
     }

@@ -91,6 +91,16 @@ namespace TravelerPortal.WebUI
                 defaults: new { controller = "Books", action = "Books" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
+            routes.MapRoute("DownloadBook",
+                url: "books/download/{bookId}",
+                defaults: new { controller = "Books", action = "Download" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            routes.MapRoute("ReadBook",
+                url: "books/read/{bookId}",
+                defaults: new { controller = "Books", action = "Read" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
             #endregion
         }
     }

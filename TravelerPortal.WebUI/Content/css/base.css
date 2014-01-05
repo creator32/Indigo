@@ -336,6 +336,7 @@ form.searchform
     #sidebar ul.sidemenu
     {
         list-style: none;
+        font-size: 14px;
     }
 
         #sidebar ul.sidemenu li

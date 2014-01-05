@@ -20,5 +20,6 @@ namespace TravelerPortal.Data
         public string Description { get; set; }
         public string ThumbnailPath { get; set; }
         public bool IsActive { get; set; }
+        public string Uri { get; set; }
     }
 }

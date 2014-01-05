@@ -12,5 +12,13 @@ namespace TravelerPortal.Services
                 return db.Books.Where(b => b.IsActive).ToArray();
             });
         }
+
+        public static Book GetById(int id)
+        {
+            return DbUtils.OpenDbContext(db =>
+            {
+                return db.Books.First(b => b.Id == id);
+            });
+        }
     }
 }
