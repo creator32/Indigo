@@ -14,17 +14,13 @@
 </head>
 <body>
     <div class="picture-film">
-        @foreach (var album in TravelerPortal.Services.PhotogalleryService.GetActiveAlbums())
-        {
-            <a href="@Url.RouteUrl("AlbumById", new { albumId = album.Id })">
-                <img src="@album.CoverPath">
-            </a>
-        }
+        @{ Html.RenderAction("RandomAlbumsPicturesHeader", "Photogallery", new { area = string.Empty }); }
     </div>
     <div id="wrap">
         <div id="header">
             <h1 id="logo"><span class="green">soul</span>travel</h1>
-            <h2 id="slogan">путешествия со смыслом<br>путешествия для души</h2>
+            <h2 id="slogan">путешествия со смыслом<br>
+                путешествия для души</h2>
             @* JUST IN CASE
             <form method="post" class="searchform" action="javascript:void(0)">
                 <p>

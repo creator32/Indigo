@@ -149,6 +149,8 @@
     <Compile Include="Views\Photogallery\AlbumVM.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Photogallery\RandomAlbumsPicturesHeaderVM.cs" />
+    <Compile Include="Views\Photogallery\RandomAlbumThumbnailVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\css\base.css" />
@@ -525,6 +527,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\soultravelProfile.pubxml" />
+    <Content Include="Views\Photogallery\RandomAlbumsPicturesHeader.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -21,6 +21,11 @@ namespace TravelerPortal.WebUI
                 defaults: new { controller = "Photogallery", action = "Albums" },
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
+            routes.MapRoute("RandomAlbumsPicturesHeader",
+                url: "photogallery/random-albums-pictures-header",
+                defaults: new { controller = "Photogallery", action = "RandomAlbumsPicturesHeader" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
             routes.MapRoute("AlbumById",
                 url: "album/{albumId}",
                 defaults: new { controller = "Photogallery", action = "Album" },

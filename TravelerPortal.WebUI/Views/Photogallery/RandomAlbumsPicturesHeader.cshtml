@@ -1,0 +1,8 @@
+﻿@model TravelerPortal.WebUI.Views.Photogallery.RandomAlbumsPicturesHeaderVM
+
+@foreach (var album in Model.Images)
+{
+    <a href="@string.Format("{0}#image-{1}", Url.RouteUrl("AlbumById", new { albumId = album.AlbumId }), album.AlbumImageId)">
+        <img src="@album.Thumbnail">
+    </a>
+}

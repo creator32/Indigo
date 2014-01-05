@@ -7,8 +7,8 @@
     { 
         <div class="wrapper" @(i != 0 && (i) % 3 == 0 ? "style=clear:both;" : string.Empty)>
             <div class="cell">
-                <a  class="highslide" href="@Model.Images[i].ThumbPath" onclick="return hs.expand(this)">
-                    <img style="max-width: 190px; max-height: 190px;" src="@Model.Images[i].ThumbnailPath" alt="@Model.Images[i].Description" />
+                <a id="@string.Format("image-{0}", Model.Images[i].Id)" class="highslide" href="@Model.Images[i].ThumbPath" onclick="return hs.expand(this)">
+                    <img  style="max-width: 190px; max-height: 190px;" src="@Model.Images[i].ThumbnailPath" alt="@Model.Images[i].Description" />
                 </a>
             </div>
         </div>
@@ -45,59 +45,74 @@
 {
     <script src="~/Content/widgets/highslide-4.1.13/highslide/highslide-full.packed.js"></script>
     <script type="text/javascript">
-        hs.graphicsDir = '../Content/widgets/highslide-4.1.13/highslide/graphics/';
-        hs.align = 'center';
-        hs.transitions = ['expand', 'crossfade'];
-        hs.fadeInOut = true;
-        hs.dimmingOpacity = 0.8;
-        hs.outlineType = 'rounded-white';
-        hs.captionEval = 'this.thumb.alt';
-        hs.marginBottom = 105; // make room for the thumbstrip and the controls
-        hs.numberPosition = 'caption';
-
-        // Add the slideshow providing the controlbar and the thumbstrip
-        hs.addSlideshow({
-            interval: 2000,
-            repeat: false,
-            useControls: true,
-            overlayOptions: {
-                className: 'text-controls',
-                position: 'bottom center',
-                relativeTo: 'viewport',
-                offsetY: -60
-            },
-            thumbstrip: {
-                position: 'bottom center',
-                mode: 'horizontal',
-                relativeTo: 'viewport'
-            }
+        $(function () {
+            initHighslide();
+            tryToOpenHighslideIfThereIsAHash();
         });
 
-        // Russian language strings
-        hs.lang = {
-            cssDirection: 'ltr',
-            loadingText: 'Загружается...',
-            loadingTitle: 'Нажмите для отмены',
-            focusTitle: 'Нажмите чтобы поместить на передний план',
-            fullExpandTitle: 'Развернуть до оригинального размера',
-            creditsText: '',
-            creditsTitle: '',
-            previousText: 'Назад',
-            nextText: 'Вперед',
-            moveText: 'Переместить',
-            closeText: 'Закрыть',
-            closeTitle: 'Закрыть (esc)',
-            resizeTitle: 'Изменить размер',
-            playText: 'Слайдшоу',
-            playTitle: 'Начать слайдшоу (пробел)',
-            pauseText: 'Пауза',
-            pauseTitle: 'Приостановить слайдшоу (пробел)',
-            previousTitle: 'Предыдущее (стрелка влево)',
-            nextTitle: 'Следующее (стрелка вправо)',
-            moveTitle: 'Переместить',
-            fullExpandText: 'Оригинальный размер',
-            number: 'Изображение %1 из %2',
-            restoreTitle: 'Нажмите чтобы закрыть изображение, нажмите и перетащите для изменения местоположения. Для просмотра изображений используйте стрелки.'
+        function initHighslide() {
+            hs.graphicsDir = '../Content/widgets/highslide-4.1.13/highslide/graphics/';
+            hs.align = 'center';
+            hs.transitions = ['expand', 'crossfade'];
+            hs.fadeInOut = true;
+            hs.dimmingOpacity = 0.8;
+            hs.outlineType = 'rounded-white';
+            hs.captionEval = 'this.thumb.alt';
+            hs.marginBottom = 105; // make room for the thumbstrip and the controls
+            hs.numberPosition = 'caption';
+
+            // Add the slideshow providing the controlbar and the thumbstrip
+            hs.addSlideshow({
+                interval: 2000,
+                repeat: false,
+                useControls: true,
+                overlayOptions: {
+                    className: 'text-controls',
+                    position: 'bottom center',
+                    relativeTo: 'viewport',
+                    offsetY: -60
+                },
+                thumbstrip: {
+                    position: 'bottom center',
+                    mode: 'horizontal',
+                    relativeTo: 'viewport'
+                }
+            });
+
+            // Russian language strings
+            hs.lang = {
+                cssDirection: 'ltr',
+                loadingText: 'Загружается...',
+                loadingTitle: 'Нажмите для отмены',
+                focusTitle: 'Нажмите чтобы поместить на передний план',
+                fullExpandTitle: 'Развернуть до оригинального размера',
+                creditsText: '',
+                creditsTitle: '',
+                previousText: 'Назад',
+                nextText: 'Вперед',
+                moveText: 'Переместить',
+                closeText: 'Закрыть',
+                closeTitle: 'Закрыть (esc)',
+                resizeTitle: 'Изменить размер',
+                playText: 'Слайдшоу',
+                playTitle: 'Начать слайдшоу (пробел)',
+                pauseText: 'Пауза',
+                pauseTitle: 'Приостановить слайдшоу (пробел)',
+                previousTitle: 'Предыдущее (стрелка влево)',
+                nextTitle: 'Следующее (стрелка вправо)',
+                moveTitle: 'Переместить',
+                fullExpandText: 'Оригинальный размер',
+                number: 'Изображение %1 из %2',
+                restoreTitle: 'Нажмите чтобы закрыть изображение, нажмите и перетащите для изменения местоположения. Для просмотра изображений используйте стрелки.'
+            };
+        };
+
+        function tryToOpenHighslideIfThereIsAHash() {
+            var hashValue = window.location.hash.substr(1);
+            if (hashValue.length > 1)
+                setTimeout(function () {
+                    hs.expand(document.getElementById(hashValue));
+                }, 0);
         };
     </script>
 }
