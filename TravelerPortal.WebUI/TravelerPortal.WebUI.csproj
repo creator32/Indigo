@@ -126,6 +126,7 @@
     <Compile Include="Areas\Admin\Views\Articles\SaveArticleVM.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -136,11 +137,15 @@
     </Compile>
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\MenuItem.cs" />
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\AlbumImage.cs" />
+    <Compile Include="Models\Comments\AddComment_Post_Req.cs" />
+    <Compile Include="Models\Comments\Comment_Post_Req.cs" />
+    <Compile Include="Models\Photogallery\Album.cs" />
+    <Compile Include="Models\Photogallery\AlbumImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Books\BooksVM.cs" />
     <Compile Include="Views\Books\BookVM.cs" />
+    <Compile Include="Views\Comments\CommentsVM.cs" />
+    <Compile Include="Views\Comments\CommentVM.cs" />
     <Compile Include="Views\Events\EventVM.cs" />
     <Compile Include="Views\Events\ScheduleVM.cs" />
     <Compile Include="Views\Photogallery\AlbumsVM.cs">
@@ -528,6 +533,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\soultravelProfile.pubxml" />
     <Content Include="Views\Photogallery\RandomAlbumsPicturesHeader.cshtml" />
+    <Content Include="Views\Comments\Comments.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

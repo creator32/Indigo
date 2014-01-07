@@ -107,6 +107,14 @@ namespace TravelerPortal.WebUI
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
             #endregion
+
+            #region Comments
+            routes.MapRoute("AddComment",
+                url: "{areaId}/{entityId}/comments",
+                defaults: new { controller = "Comments", action = "AddComment" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+            #endregion
         }
     }
 }

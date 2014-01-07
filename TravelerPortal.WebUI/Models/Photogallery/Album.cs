@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TravelerPortal.WebUI.Models
+namespace TravelerPortal.WebUI.Models.Photogallery
 {
     public class Album
     {

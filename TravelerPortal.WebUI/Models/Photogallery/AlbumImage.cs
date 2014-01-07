@@ -1,5 +1,5 @@
 ﻿
-namespace TravelerPortal.WebUI.Models
+namespace TravelerPortal.WebUI.Models.Photogallery
 {
     public class AlbumImage
     {

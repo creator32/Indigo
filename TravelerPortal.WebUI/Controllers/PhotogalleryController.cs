@@ -17,7 +17,7 @@ namespace TravelerPortal.WebUI.Controllers
         {
             var albums = PhotogalleryService.GetActiveAlbums();
             var model = new AlbumsVM();
-            model.Albums = albums.Select(a => new TravelerPortal.WebUI.Models.Album
+            model.Albums = albums.Select(a => new TravelerPortal.WebUI.Models.Photogallery.Album
             {
                 Id = a.Id,
                 Name = a.Name,
@@ -32,7 +32,7 @@ namespace TravelerPortal.WebUI.Controllers
         {
             var album = PhotogalleryService.GetAlbumWithImages(albumId);
             var albumImages = album.AlbumImages
-                .Select(ai => new TravelerPortal.WebUI.Models.AlbumImage
+                .Select(ai => new TravelerPortal.WebUI.Models.Photogallery.AlbumImage
                 {
                     Id = (int)ai.Id,
                     Name = ai.Name,

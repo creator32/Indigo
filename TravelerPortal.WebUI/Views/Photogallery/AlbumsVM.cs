@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TravelerPortal.WebUI.Models;
+using TravelerPortal.WebUI.Models.Photogallery;
 
 namespace TravelerPortal.WebUI.Views.Photogallery
 {
