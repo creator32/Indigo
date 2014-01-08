@@ -109,10 +109,17 @@ namespace TravelerPortal.WebUI
             #endregion
 
             #region Comments
+            routes.MapRoute("AllComments",
+                url: "{areaId}/{entityId}/comments",
+                defaults: new { controller = "Comments", action = "Comments" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" },
+                constraints: new { httpMethod = new HttpMethodConstraint("GET") }
+            );
             routes.MapRoute("AddComment",
                 url: "{areaId}/{entityId}/comments",
                 defaults: new { controller = "Comments", action = "AddComment" },
-                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" },
+                constraints: new { httpMethod = new HttpMethodConstraint("POST") }
             );
             #endregion
         }

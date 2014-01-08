@@ -1,16 +1,27 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 using TravelerPortal.Services;
+using TravelerPortal.WebUI.Infrastructure;
 
 namespace TravelerPortal.WebUI.Controllers
 {
     public class ArticlesController : Controller
     {
-        private ArticlesService articlesService;
+        private static readonly ArticlesService articlesService;
+        private static readonly string VKAppId;
+        private static readonly string FBAppId;
+
+        static ArticlesController()
+        {
+            VKAppId = ConfigurationManager.AppSettings["social:VKAppId"];
+            FBAppId = ConfigurationManager.AppSettings["social:FBAppId"];
+            articlesService = new ArticlesService();
+        }
 
         public ArticlesController()
         {
-            articlesService = new ArticlesService();
             ViewBag.ActiveMainMenuItemTitle = "Статьи";
+            ViewBag.AreaId = SiteAreas.Article;
         }
 
         public ActionResult Articles()
@@ -21,6 +32,8 @@ namespace TravelerPortal.WebUI.Controllers
 
         public ActionResult Article(int articleId)
         {
+            ViewBag.VKAppId = VKAppId;
+            ViewBag.FBAppId = FBAppId;
             var article = articlesService.GetById(articleId);
             return View(article);
         }

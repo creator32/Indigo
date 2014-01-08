@@ -1,1 +1,30 @@
 ﻿@model TravelerPortal.WebUI.Views.Comments.CommentsVM
+
+@foreach (var comment in Model.Comments)
+{
+    <table>
+        <tr>
+            <td>User.FirstName</td>
+            <td>@comment.User.FirstName</td>
+        </tr>
+        <tr>
+            <td>User.LastName</td>
+            <td>@comment.User.LastName</td>
+        </tr>
+        <tr>
+            <td>User.Thumbnail</td>
+            <td>
+                <img src="@comment.User.Thumbnail" />
+            </td>
+        </tr>
+        <tr>
+            <td>Comment</td>
+            <td>@comment.Text</td>
+        </tr>
+        <tr>
+            <td>Created</td>
+            <td>@comment.Created</td>
+        </tr>
+    </table>
+    <hr>
+}

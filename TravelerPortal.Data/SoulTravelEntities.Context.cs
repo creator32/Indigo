@@ -33,5 +33,7 @@ namespace TravelerPortal.Data
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Travel> Travels { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

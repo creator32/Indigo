@@ -61,6 +61,9 @@
     <Compile Include="Book.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Comment.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbUtils.cs" />
     <Compile Include="EntityAdditionalInfo.cs" />
     <Compile Include="Event.cs">
@@ -90,6 +93,9 @@
       <DependentUpon>SoulTravelEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Travel.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace TravelerPortal.WebUI.Views.Comments
 {
     public class CommentVM
@@ -11,6 +12,7 @@ namespace TravelerPortal.WebUI.Views.Comments
         }
 
         public string Text { get; set; }
+        public DateTime Created { get; set; }
         public UserVM User { get; set; }
     }
 }

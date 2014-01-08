@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\MenuItem.cs" />
+    <Compile Include="Infrastructure\SiteAreas.cs" />
     <Compile Include="Models\Comments\AddComment_Post_Req.cs" />
     <Compile Include="Models\Comments\Comment_Post_Req.cs" />
     <Compile Include="Models\Photogallery\Album.cs" />
@@ -273,6 +274,7 @@
     <Content Include="Content\img\page.gif" />
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
+    <Content Include="Content\js\ViewsJS\Articles\article.js" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\ajax.html" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\flash.html" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\gallery-controls-in-heading.html" />
@@ -444,7 +446,6 @@
     <Folder Include="Areas\Admin\Content\img\" />
     <Folder Include="Areas\Admin\Content\js\ViewsJS\" />
     <Folder Include="Content\css\ViewsCSS\" />
-    <Folder Include="Content\js\ViewsJS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
