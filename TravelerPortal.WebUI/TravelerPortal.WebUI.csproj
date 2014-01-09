@@ -268,12 +268,14 @@
     <Content Include="Content\img\clock.gif" />
     <Content Include="Content\img\comment.gif" />
     <Content Include="Content\img\favicon-original.png" />
+    <Content Include="Content\img\fb-icon.png" />
     <Content Include="Content\img\firefox-gray.jpg" />
     <Content Include="Content\img\headerbg.gif" />
     <Content Include="Content\img\headerphoto.jpg" />
     <Content Include="Content\img\page.gif" />
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
+    <Content Include="Content\img\vk-icon.png" />
     <Content Include="Content\js\ViewsJS\Articles\article.js" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\ajax.html" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\flash.html" />

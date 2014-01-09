@@ -15,8 +15,9 @@
     },
     UI: {
         error: "",
+        $errorContainer: $(".add-comment-wrap .state"),
         addCommentToList: function () {
-
+            model.UI.error = "Комментарий будет отображен после перезагрузки страницы";
         },
         clearCommentAddingForm: function () {
             model.user.FBId = "";
@@ -65,8 +66,10 @@
                         }).done(function () {
                             model.UI.addCommentToList();
                             model.UI.clearCommentAddingForm();
+                            model.UI.$errorContainer.html(model.UI.error);
                         }).fail(function () {
                             model.UI.error = "Произошла ошибка при добавлении комментария";
+                            model.UI.$errorContainer.html(model.UI.error);
                         });
                     } else {
                         model.UI.error = "E-mail не должен быть пустым или неправильным";
@@ -77,6 +80,8 @@
             } else {
                 model.UI.error = "Авторизуйтесь через Facebook или ВКонтакте";
             };
+            if (model.UI.error !== "")
+                model.UI.$errorContainer.html(model.UI.error);
         },
         loginToFB: function () {
             model.UI.error = "";

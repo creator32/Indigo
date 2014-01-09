@@ -3,22 +3,27 @@
 
 <h1>@Model.Name</h1>
 @{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToArticles"], Model.DetailedDescriptionPath), Model);}
-<h1>Комментарии</h1>
+<h3 style="margin-bottom: 10px;">Комментарии</h3>
 @{Html.RenderAction("Comments", "Comments", new { area = string.Empty, areaId = ViewBag.AreaId, entityId = Model.Id });}
-<h1>Добавить комментарий</h1>
-<a id="fb-login-button" href="javascript:void(0)" onclick="model.methods.loginToFB(); return false;">FB Login</a>
-<a id="vk-login-button" href="javascript:void(0)" onclick="model.methods.loginToVK(); return false;">VK Login</a>
-<br>
-<br>
-<textarea id="comment" placeholder="Комментарий"></textarea>
-<br>
-<input id="userName" type="text" value="" placeholder="Имя" readonly="readonly" />
-<br>
-<br>
-<input id="userEmail" type="text" value="" placeholder="E-mail" />
-<br>
-<br>
-<button onclick="model.methods.sendComment()">Отправить</button>
+<h3 style="margin-bottom: 10px;">Добавить комментарий</h3>
+<div class="add-comment-wrap">
+    <div class="header ">
+        <div class="state" style="float: left">
+        </div>
+        <div class="social bottom-margin" style="float: right">
+            <a id="fb-login-button" href="javascript:void(0)" onclick="model.methods.loginToFB(); return false;"></a>
+            &nbsp;
+            <a id="vk-login-button" href="javascript:void(0)" onclick="model.methods.loginToVK(); return false;"></a>
+        </div>
+    </div>
+    <textarea id="comment" class="margins" placeholder="Комментарий" style="width: 100%"></textarea>
+    <input id="userName" class="margins" type="text" value="" placeholder="Имя (будет получено автоматически после авторизации)" readonly="readonly" style="width: 80%" />
+    <br>
+    <input id="userEmail" class="margins" type="text" value="" placeholder="E-mail" style="width: 80%" />
+    <br>
+    <button onclick="model.methods.sendComment()" style="float: right; font-size: 16px;">Отправить</button>
+    <br>
+</div>
 
 @section FooterScripts {
     <script>
