@@ -64,27 +64,12 @@
             </div>
         </div>
     </div>
+    @RenderFooterScripts()
 </body>
-
-@RenderFooterScripts()
+</html>
 
 @helper RenderStyles()
 {
-    <style>
-        .picture-film
-        {
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-        }
-
-            .picture-film a img
-            {
-                max-height: 75px;
-                max-width: 75px;
-                margin: auto 2.5px;
-            }
-    </style>
     <link rel="stylesheet" type="text/css" href="~/Content/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/css/base.css" />
     @RenderSection("Styles", false)
@@ -102,12 +87,23 @@
         function notImplemented() {
             alert("Извините за неудобства. Находится в разработке.");
         };
+        function stringifyDateTime(datetime) {
+            var addLeadingZeroSymbolIfNeeded = function (number) {
+                if (number < 10) {
+                    return "0" + number;
+                } else {
+                    return number;
+                }
+            };
+            var strDate = datetime.getFullYear() + "-" + addLeadingZeroSymbolIfNeeded((datetime.getMonth() + 1)) + "-" + addLeadingZeroSymbolIfNeeded(datetime.getDate());
+            var strTime = addLeadingZeroSymbolIfNeeded(datetime.getHours()) + ":" + addLeadingZeroSymbolIfNeeded(datetime.getMinutes());
+            return strDate + " " + strTime;
+        };
         var server = {
             configurations: {},
             routeUrls: {}
         };
+        document.cookie = "timeZoneOffsetInMinutes=" + new Date().getTimezoneOffset() * -1 + ";path=/";
     </script>
     @RenderSection("FooterScripts", false)
 }
-
-</html>

@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -137,6 +140,8 @@
     </Compile>
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\MenuItem.cs" />
+    <Compile Include="Infrastructure\ClientContext.cs" />
+    <Compile Include="Infrastructure\JSONCustomDateConverter.cs" />
     <Compile Include="Infrastructure\SiteAreas.cs" />
     <Compile Include="Models\Comments\AddComment_Post_Req.cs" />
     <Compile Include="Models\Comments\Comment_Post_Req.cs" />
@@ -276,6 +281,7 @@
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
     <Content Include="Content\img\vk-icon.png" />
+    <Content Include="Content\js\knockout-3.0.0.js" />
     <Content Include="Content\js\ViewsJS\Articles\article.js" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\ajax.html" />
     <Content Include="Content\widgets\highslide-4.1.13\examples\flash.html" />

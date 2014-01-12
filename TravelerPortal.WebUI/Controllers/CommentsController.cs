@@ -8,27 +8,7 @@ namespace TravelerPortal.WebUI.Controllers
 {
     public class CommentsController : Controller
     {
-        [ChildActionOnly]
-        public PartialViewResult Comments(int areaId, int entityId)
-        {
-            var dbComments = CommentsService.GetActive(areaId, entityId, fieldsToInclude: "User");
-            var model = new CommentsVM()
-            {
-                Comments = dbComments.Select(c => new CommentVM()
-                {
-                    Text = c.Text,
-                    Created = c.Created,
-                    User = new CommentVM.UserVM()
-                    {
-                        FirstName = c.User.FirstName,
-                        LastName = c.User.LastName,
-                        Thumbnail = c.User.Thumbnail,
-                    }
-                }).ToList()
-            };
-            return PartialView(model);
-        }
-
+        #region Actions
         public JsonResult AddComment(int areaId, int entityId, AddComment_Post_Req model)
         {
             var commentToAdd = new Data.Comment()
@@ -48,6 +28,27 @@ namespace TravelerPortal.WebUI.Controllers
             };
             CommentsService.Add(commentToAdd, userToAddCommentTo);
             return Json(string.Empty);
+        }
+        #endregion
+
+        public static CommentsVM GetComments(int areaId, int entityId)
+        {
+            var dbComments = CommentsService.GetActive(areaId, entityId, fieldsToInclude: "User");
+            var model = new CommentsVM()
+            {
+                Comments = dbComments.Select(c => new CommentVM()
+                {
+                    Text = c.Text,
+                    Created = c.Created,
+                    User = new CommentVM.UserVM()
+                    {
+                        FirstName = c.User.FirstName,
+                        LastName = c.User.LastName,
+                        Thumbnail = c.User.Thumbnail,
+                    }
+                }).ToList()
+            };
+            return model;
         }
     }
 }

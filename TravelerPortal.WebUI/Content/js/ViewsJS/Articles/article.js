@@ -17,7 +17,15 @@
         error: "",
         $errorContainer: $(".add-comment-wrap .state"),
         addCommentToList: function () {
-            model.UI.error = "Комментарий будет отображен после перезагрузки страницы";
+            koViewModel.comments.push({
+                created: stringifyDateTime(new Date()),
+                text: $("#comment").val(),
+                user: {
+                    firstName: model.user.firstName,
+                    lastName: model.user.lastName,
+                    thumbnail: model.user.thumbnail
+                }
+            });
         },
         clearCommentAddingForm: function () {
             model.user.FBId = "";
@@ -66,7 +74,6 @@
                         }).done(function () {
                             model.UI.addCommentToList();
                             model.UI.clearCommentAddingForm();
-                            model.UI.$errorContainer.html(model.UI.error);
                         }).fail(function () {
                             model.UI.error = "Произошла ошибка при добавлении комментария";
                             model.UI.$errorContainer.html(model.UI.error);

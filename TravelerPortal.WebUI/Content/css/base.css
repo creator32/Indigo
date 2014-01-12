@@ -530,7 +530,7 @@ form.searchform
     padding: 0px;
 }
 
-/*album thumbnails*/
+/* album thumbnails */
 .thumbnail
 {
     float: left;
@@ -543,6 +543,22 @@ form.searchform
 {
     clear: both;
 }
+
+/* picture film */
+
+.picture-film
+{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+
+    .picture-film a img
+    {
+        max-height: 75px;
+        max-width: 75px;
+        margin: auto 2.5px;
+    }
 
 /* Comments */
 .add-comment-wrap

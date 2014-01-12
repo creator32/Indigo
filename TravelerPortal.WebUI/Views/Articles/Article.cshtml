@@ -1,10 +1,38 @@
 ﻿@using System.Configuration;
+@using TravelerPortal.WebUI.Controllers;
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Serialization;
+@using TravelerPortal.WebUI.Infrastructure;
 @model TravelerPortal.Data.Article
+@{
+    var commentsAsJson = JsonConvert.SerializeObject(
+        CommentsController.GetComments((int)ViewBag.AreaId, Model.Id).Comments,
+        Formatting.None,
+        new JsonSerializerSettings
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            Converters = new List<JsonConverter>() { 
+                new JSONCustomDateConverter("yyyy-MM-dd HH:mm", ClientContext.TimeZoneOffsetInMinutes)
+            }
+        }
+    );
+}
 
 <h1>@Model.Name</h1>
 @{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToArticles"], Model.DetailedDescriptionPath), Model);}
 <h3 style="margin-bottom: 10px;">Комментарии</h3>
-@{Html.RenderAction("Comments", "Comments", new { area = string.Empty, areaId = ViewBag.AreaId, entityId = Model.Id });}
+<ol data-bind="foreach: comments" class="commentlist">
+    <li class="comment">
+        <div class="comment-meta">
+            <img data-bind="attr: {src: user.thumbnail}" alt="" src="" class="avatar no-border" height="50" width="50">
+            <div class="username">
+                <span data-bind="text: user.firstName"></span>&nbsp;<span data-bind="    text: user.lastName"></span>
+            </div>
+            <div data-bind="text: created" class="time"></div>
+        </div>
+        <div class="comment-content" data-bind="text: text"></div>
+    </li>
+</ol>
 <h3 style="margin-bottom: 10px;">Добавить комментарий</h3>
 <div class="add-comment-wrap">
     <div class="header ">
@@ -26,6 +54,7 @@
 </div>
 
 @section FooterScripts {
+
     <script>
         server.configurations.VKAppId = @ViewBag.VKAppId;
         server.configurations.FBAppId = "@ViewBag.FBAppId";
@@ -33,5 +62,14 @@
     </script>
     <script src="http://connect.facebook.net/en_US/all.js" type="text/javascript"></script>
     <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
+    <script src="~/Content/js/knockout-3.0.0.js" type="text/javascript"></script>
+    <script>
+        var koViewModel = (function () {
+            var self = this;
+            self.comments = ko.observableArray(@Html.Raw(commentsAsJson));
+            return self;
+        })();
+        ko.applyBindings(koViewModel);
+    </script>
     <script src="~/Content/js/ViewsJS/Articles/article.js" type="text/javascript"></script>
 }
