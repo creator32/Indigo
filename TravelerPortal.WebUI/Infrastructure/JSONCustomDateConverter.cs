@@ -6,13 +6,13 @@ namespace TravelerPortal.WebUI.Infrastructure
 {
     public class JSONCustomDateConverter : DateTimeConverterBase
     {
-        private int _timeZoneOffsetInMinutes;
+        private int _timeZoneOffset;
         private string _dateFormat;
 
-        public JSONCustomDateConverter(string dateFormat, int timeZoneOffsetInMinutes)
+        public JSONCustomDateConverter(string dateFormat, int timeZoneOffset)
         {
             _dateFormat = dateFormat;
-            _timeZoneOffsetInMinutes = timeZoneOffsetInMinutes;
+            _timeZoneOffset = timeZoneOffset;
         }
         public override bool CanConvert(Type objectType)
         {
@@ -26,7 +26,7 @@ namespace TravelerPortal.WebUI.Infrastructure
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(Convert.ToDateTime(value).AddMinutes(_timeZoneOffsetInMinutes).ToString(_dateFormat));
+            writer.WriteValue(Convert.ToDateTime(value).AddMinutes(_timeZoneOffset).ToString(_dateFormat));
             writer.Flush();
         }
     }

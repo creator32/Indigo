@@ -15,6 +15,12 @@ namespace TravelerPortal.WebUI
                 namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
             );
 
+            routes.MapRoute("TimezoneCookieAdder",
+                url: "timezone",
+                defaults: new { controller = "TimezoneCookieAdder", action = "TimezoneCookieAdder" },
+                namespaces: new[] { "TravelerPortal.WebUI.Controllers" }
+            );
+
             #region Photogallery
             routes.MapRoute("AllAlbums",
                 url: "photogallery",

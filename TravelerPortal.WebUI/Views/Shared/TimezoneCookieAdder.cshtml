@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="~/Content/js/jquery.cookie.js"></script>
+        <script>
+            $(function () {
+                $.cookie("timeZoneOffset", new Date().getTimezoneOffset() * -1, { path: "/" });
+                document.location = "@Request.QueryString["redirectUrl"]";
+            });
+        </script>
+    </head>
+<body>
+    Please, wait for a while
+    We are getting information about your time zone
+</body>
+</html>

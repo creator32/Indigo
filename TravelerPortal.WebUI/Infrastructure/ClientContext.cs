@@ -24,7 +24,7 @@ namespace TravelerPortal.WebUI.Infrastructure
         {
             get
             {
-                return int.Parse(cookies["timeZoneOffsetInMinutes"].Value);
+                return int.Parse(cookies["timeZoneOffset"].Value);
             }
         }
     }

@@ -603,6 +603,13 @@ form.searchform
         margin-bottom: 5px;
     }
 
+    .add-comment-wrap textarea
+    {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
     .add-comment-wrap textarea, .add-comment-wrap input
     {
         border: 1px solid #ddd;

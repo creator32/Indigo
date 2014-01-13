@@ -77,12 +77,16 @@
 
 @helper RenderHeaderScripts()
 {
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/js/jquery.cookie.js"></script>
+    <script>
+        $.cookie("timeZoneOffset", new Date().getTimezoneOffset() * -1, { path: "/" });
+    </script>
     @RenderSection("HeaderScripts", false)
 }
 
 @helper RenderFooterScripts()
 {
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script>
         function notImplemented() {
             alert("Извините за неудобства. Находится в разработке.");
@@ -103,7 +107,6 @@
             configurations: {},
             routeUrls: {}
         };
-        document.cookie = "timeZoneOffsetInMinutes=" + new Date().getTimezoneOffset() * -1 + ";path=/";
     </script>
     @RenderSection("FooterScripts", false)
 }

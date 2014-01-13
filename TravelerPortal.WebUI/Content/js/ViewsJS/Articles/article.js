@@ -26,6 +26,7 @@
                     thumbnail: model.user.thumbnail
                 }
             });
+            $(".commentlist .comment").last().hide().fadeIn(1500);
         },
         clearCommentAddingForm: function () {
             model.user.FBId = "";
@@ -47,18 +48,24 @@
     },
     methods: {
         sendComment: function () {
+            var isEmailAddress = function (str) {
+                var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return pattern.test(str);
+            };
             model.UI.error = "";
+            var commentText = $("#comment").val().trim();
+            var emailAddress = $("#userEmail").val().trim();
             if (model.user.FBId !== "" || model.user.VKId !== "") {
-                if ($("#comment").val().trim() !== "") {
-                    if ($("#userEmail").val().trim() !== "") //verify for correctness
+                if (commentText !== "") {
+                    if (emailAddress !== "" && isEmailAddress(emailAddress))
                     {
                         var objToSend = {
                             Comment: {
-                                Text: $("#comment").val(),
+                                Text: commentText,
                                 User: {
                                     FBId: model.user.FBId,
                                     VKId: model.user.VKId,
-                                    Email: $("#userEmail").val(),
+                                    Email: emailAddress,
                                     FirstName: model.user.firstName,
                                     LastName: model.user.lastName,
                                     Thumbnail: model.user.thumbnail
@@ -87,8 +94,7 @@
             } else {
                 model.UI.error = "Авторизуйтесь через Facebook или ВКонтакте";
             };
-            if (model.UI.error !== "")
-                model.UI.$errorContainer.html(model.UI.error);
+            model.UI.$errorContainer.html(model.UI.error);
         },
         loginToFB: function () {
             model.UI.error = "";
