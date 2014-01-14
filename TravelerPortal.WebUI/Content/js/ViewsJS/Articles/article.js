@@ -15,7 +15,14 @@
     },
     UI: {
         error: "",
-        $errorContainer: $(".add-comment-wrap .state"),
+        loginViaSocialNetSpinner: new Spinner(spinnerStandartOpts),
+        showError: function (error) {
+            model.UI.error = error;
+            $(".add-comment-wrap .header .state #error-text").html(error);
+        },
+        clearError: function () {
+            model.UI.showError("");
+        },
         addCommentToList: function () {
             koViewModel.comments.push({
                 created: stringifyDateTime(new Date()),
@@ -40,64 +47,67 @@
             $("#userEmail").val("");
         },
         showSpinner: function () {
-
+            var target = $(".add-comment-wrap .header .state #spinner")[0];
+            model.UI.loginViaSocialNetSpinner.spin(target);
         },
         stopSpinner: function () {
-
+            model.UI.loginViaSocialNetSpinner.stop();
         }
     },
     methods: {
         sendComment: function () {
-            var isEmailAddress = function (str) {
+            var isValidEmailAddress = function (str) {
                 var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 return pattern.test(str);
             };
-            model.UI.error = "";
+            model.UI.clearError();
             var commentText = $("#comment").val().trim();
             var emailAddress = $("#userEmail").val().trim();
-            if (model.user.FBId !== "" || model.user.VKId !== "") {
+            if ((model.user.FBId !== "") || (model.user.VKId !== "")) {
                 if (commentText !== "") {
-                    if (emailAddress !== "" && isEmailAddress(emailAddress))
-                    {
-                        var objToSend = {
-                            Comment: {
-                                Text: commentText,
-                                User: {
-                                    FBId: model.user.FBId,
-                                    VKId: model.user.VKId,
-                                    Email: emailAddress,
-                                    FirstName: model.user.firstName,
-                                    LastName: model.user.lastName,
-                                    Thumbnail: model.user.thumbnail
+                    if (emailAddress !== "") {
+                        if (isValidEmailAddress(emailAddress)) {
+                            var objToSend = {
+                                Comment: {
+                                    Text: commentText,
+                                    User: {
+                                        FBId: model.user.FBId,
+                                        VKId: model.user.VKId,
+                                        Email: emailAddress,
+                                        FirstName: model.user.firstName,
+                                        LastName: model.user.lastName,
+                                        Thumbnail: model.user.thumbnail
+                                    }
                                 }
-                            }
+                            };
+                            $.ajax({
+                                url: server.routeUrls.addComment,
+                                type: "POST",
+                                data: JSON.stringify(objToSend),
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8"
+                            }).done(function () {
+                                model.UI.addCommentToList();
+                                model.UI.clearCommentAddingForm();
+                                model.UI.clearError();
+                            }).fail(function () {
+                                model.UI.showError("Произошла ошибка при добавлении комментария");
+                            });
+                        } else {
+                            model.UI.showError("Адрес электронной почты имеет неверный формат");
                         };
-                        $.ajax({
-                            url: server.routeUrls.addComment,
-                            type: "POST",
-                            data: JSON.stringify(objToSend),
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8"
-                        }).done(function () {
-                            model.UI.addCommentToList();
-                            model.UI.clearCommentAddingForm();
-                        }).fail(function () {
-                            model.UI.error = "Произошла ошибка при добавлении комментария";
-                            model.UI.$errorContainer.html(model.UI.error);
-                        });
                     } else {
-                        model.UI.error = "E-mail не должен быть пустым или неправильным";
+                        model.UI.showError("Введите адрес своей электронной почты");
                     };
                 } else {
-                    model.UI.error = "Комментарий не должен быть пустым";
+                    model.UI.showError("Комментарий не должен быть пустым");
                 };
             } else {
-                model.UI.error = "Авторизуйтесь через Facebook или ВКонтакте";
+                model.UI.showError("Авторизуйтесь через Facebook или ВКонтакте");
             };
-            model.UI.$errorContainer.html(model.UI.error);
         },
         loginToFB: function () {
-            model.UI.error = "";
+            model.UI.clearError();
             model.UI.showSpinner();
             FB.init({
                 appId: server.configurations.FBAppId
@@ -106,8 +116,6 @@
                 function (r1) {
                     if (r1.status === 'connected') {
                         FB.api('/me', function (r2) {
-                            console.log("FB:");
-                            console.log(r2);
                             model.user.FBId = r2.id.toString();
                             model.user.firstName = r2.first_name;
                             model.user.lastName = r2.last_name;
@@ -117,7 +125,7 @@
                             model.UI.stopSpinner();
                         });
                     } else {
-                        model.UI.error = "Facebook: Неизвестная ошибка";
+                        model.UI.showError("Facebook: Неизвестная ошибка");
                         model.UI.stopSpinner();
                     };
                 },
@@ -127,15 +135,13 @@
             );
         },
         loginToVK: function () {
-            model.UI.error = "";
+            model.UI.clearError();
             model.UI.showSpinner();
             VK.init({
                 apiId: server.configurations.VKAppId
             });
             VK.Auth.login(function (r) {
                 if (r.session) {
-                    console.log("VK:");
-                    console.log(r);
                     model.user.VKId = r.session.user.id.toString();
                     model.user.firstName = r.session.user.first_name;
                     model.user.lastName = r.session.user.last_name;
@@ -149,7 +155,7 @@
                     model.user.displayOntoUI();
                     model.UI.stopSpinner();
                 } else {
-                    model.UI.error = "ВКонтакте: Неизвестная ошибка";
+                    model.UI.showError("ВКонтакте: Неизвестная ошибка");
                     model.UI.stopSpinner();
                 };
             });

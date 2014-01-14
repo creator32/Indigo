@@ -21,22 +21,27 @@
 <h1>@Model.Name</h1>
 @{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToArticles"], Model.DetailedDescriptionPath), Model);}
 <h3 style="margin-bottom: 10px;">Комментарии</h3>
-<ol data-bind="foreach: comments" class="commentlist">
-    <li class="comment">
-        <div class="comment-meta">
-            <img data-bind="attr: {src: user.thumbnail}" alt="" src="" class="avatar no-border" height="50" width="50">
-            <div class="username">
-                <span data-bind="text: user.firstName"></span>&nbsp;<span data-bind="    text: user.lastName"></span>
+<div data-bind="template: {name: 'comments-template'}"></div>
+<script type="text/html" id="comments-template">
+    <ol data-bind="foreach: comments" class="commentlist">
+        <li class="comment">
+            <div class="comment-meta">
+                <img data-bind="attr: {src: user.thumbnail}" alt="" src="" class="avatar no-border" height="50" width="50">
+                <div class="username">
+                    <span data-bind="text: user.firstName"></span>&nbsp;<span data-bind="    text: user.lastName"></span>
+                </div>
+                <div data-bind="text: created" class="time"></div>
             </div>
-            <div data-bind="text: created" class="time"></div>
-        </div>
-        <div class="comment-content" data-bind="text: text"></div>
-    </li>
-</ol>
+            <div class="comment-content" data-bind="text: text"></div>
+        </li>
+    </ol>
+</script>
 <h3 style="margin-bottom: 10px;">Добавить комментарий</h3>
 <div class="add-comment-wrap">
-    <div class="header ">
+    <div class="header">
         <div class="state" style="float: left">
+            <div id="error-text" style="float: left"></div>
+            <div id="spinner" style="height: 20px; width: 20px; float: left"></div>
         </div>
         <div class="social bottom-margin" style="float: right">
             <a id="fb-login-button" href="javascript:void(0)" onclick="model.methods.loginToFB(); return false;"></a>
@@ -54,6 +59,7 @@
 </div>
 
 @section FooterScripts {
+
     <script>
         server.configurations.VKAppId = @ViewBag.VKAppId;
         server.configurations.FBAppId = "@ViewBag.FBAppId";
@@ -64,8 +70,10 @@
     <script src="~/Content/js/knockout-3.0.0.js"></script>
     <script src="~/Content/js/webshims/js-webshim/minified/extras/modernizr-custom.js"></script>
     <script src="~/Content/js/webshims/js-webshim/minified/polyfiller.js"></script>
+    <script src="~/Content/js/spin.min.js"></script>
+    <script src="~/Content/js/ViewsJS/spinnerStandardOpts.js"></script>
     <script>
-        $.webshims.polyfill();
+        $.webshims.polyfill("forms");
         var koViewModel = (function () {
             var self = this;
             self.comments = ko.observableArray(@Html.Raw(commentsAsJson));

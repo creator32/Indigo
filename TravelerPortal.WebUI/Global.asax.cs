@@ -19,7 +19,7 @@ namespace TravelerPortal.WebUI
         protected void Application_BeginRequest()
         {
             var isThereTimezoneCookieOnClient = (Request.Cookies["timeZoneOffset"] != null);
-            if (!isThereTimezoneCookieOnClient && Request.Url.AbsolutePath != new UrlHelper(Request.RequestContext).RouteUrl("TimezoneCookieAdder"))
+            if (!isThereTimezoneCookieOnClient && (Request.Url.AbsolutePath != new UrlHelper(Request.RequestContext).RouteUrl("TimezoneCookieAdder")))
             {
                 var newUrl = string.Format(
                     "{0}?{1}={2}",

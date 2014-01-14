@@ -1,5 +1,5 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
 namespace TravelerPortal.WebUI.Views.Comments
 {
     public class CommentsVM

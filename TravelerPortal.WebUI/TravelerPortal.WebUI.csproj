@@ -284,7 +284,9 @@
     <Content Include="Content\img\vk-icon.png" />
     <Content Include="Content\js\jquery.cookie.js" />
     <Content Include="Content\js\knockout-3.0.0.js" />
+    <Content Include="Content\js\spin.min.js" />
     <Content Include="Content\js\ViewsJS\Articles\article.js" />
+    <Content Include="Content\js\ViewsJS\spinnerStandardOpts.js" />
     <Content Include="Content\js\webshims\css\calendar.gif" />
     <Content Include="Content\js\webshims\css\header-bg.png" />
     <Content Include="Content\js\webshims\css\polyfill-loader.gif" />
@@ -871,7 +873,6 @@
     <Content Include="Content\js\webshims\js-webshim\minified\shims\styles\scss\_extends.scss" />
     <None Include="Properties\PublishProfiles\soultravelProfile.pubxml" />
     <Content Include="Views\Photogallery\RandomAlbumsPicturesHeader.cshtml" />
-    <Content Include="Views\Comments\Comments.cshtml" />
     <Content Include="Views\Shared\TimezoneCookieAdder.cshtml" />
   </ItemGroup>
   <PropertyGroup>
