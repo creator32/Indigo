@@ -282,6 +282,7 @@
     <Content Include="Content\img\tableft.gif" />
     <Content Include="Content\img\tabright.gif" />
     <Content Include="Content\img\vk-icon.png" />
+    <Content Include="Content\js\jquery-1.10.2.min.js" />
     <Content Include="Content\js\jquery.cookie.js" />
     <Content Include="Content\js\knockout-3.0.0.js" />
     <Content Include="Content\js\spin.min.js" />
