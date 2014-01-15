@@ -7,7 +7,6 @@
     @:@{Html.RenderPartial(string.Format(@"{0}/{1}", ConfigurationManager.AppSettings["pathToNews"], news.BriefDescriptionPath), news);}
     <p class="post-footer align-right">
         <a href="@Url.RouteUrl("NewsById", new { newsId = news.Id })" class="readmore">Читать дальше</a>
-        <a href="javascript:notImplemented()" class="comments">Комментарии (0)</a>
-        <span class="date">@news.Created</span>
+        <span class="date">@news.Created.ToShortDateString()</span>
     </p>
 }

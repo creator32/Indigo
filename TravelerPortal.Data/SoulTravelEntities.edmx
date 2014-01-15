@@ -13,6 +13,7 @@
           <EntitySet Name="Comment" EntityType="SoulTravelModel.Store.Comment" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Event" EntityType="SoulTravelModel.Store.Event" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="News" EntityType="SoulTravelModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Opinion" EntityType="SoulTravelModel.Store.Opinion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Quote" EntityType="SoulTravelModel.Store.Quote" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Travel" EntityType="SoulTravelModel.Store.Travel" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="SoulTravelModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -106,6 +107,16 @@
           <Property Name="Name" Type="varchar(max)" Nullable="false" />
           <Property Name="BriefDescriptionPath" Type="varchar(max)" Nullable="false" />
           <Property Name="DetailedDescriptionPath" Type="varchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opinion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Thumbnail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime2" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
@@ -209,6 +220,7 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Comment" EntitySet="Comments" />
           </AssociationSet>
+          <EntitySet Name="Opinions" EntityType="SoulTravelModel.Opinion" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -369,6 +381,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Opinion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Thumbnail" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="7" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -492,6 +514,17 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="VKId" ColumnName="VKId" />
                 <ScalarProperty Name="FBId" ColumnName="FBId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opinions">
+            <EntityTypeMapping TypeName="SoulTravelModel.Opinion">
+              <MappingFragment StoreEntitySet="Opinion">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

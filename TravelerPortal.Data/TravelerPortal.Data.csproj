@@ -73,6 +73,9 @@
     <Compile Include="News.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Opinion.cs">
+      <DependentUpon>SoulTravelEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quote.cs">
       <DependentUpon>SoulTravelEntities.tt</DependentUpon>

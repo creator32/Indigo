@@ -1,6 +1,8 @@
 ﻿@using TravelerPortal.WebUI.Helpers
+@using TravelerPortal.Services
 @{
-    var randomQuote = TravelerPortal.Services.QuotesService.GetRandomQuote();
+    var randomQuote = QuotesService.GetRandom();
+    var randomOpinion = OpinionsService.GetRandom();
 }
 <!DOCTYPE html>
 <html lang="ru">
@@ -13,35 +15,31 @@
     @RenderHeaderScripts()
 </head>
 <body>
-    <div class="picture-film">
-        @{ Html.RenderAction("RandomAlbumsPicturesHeader", "Photogallery", new { area = string.Empty }); }
-    </div>
     <div id="wrap">
         <div id="header">
-            <h1 id="logo"><span class="green">soul</span>travel</h1>
-            <h2 id="slogan">путешествия со смыслом<br>
-                путешествия для души</h2>
-            @* JUST IN CASE
-            <form method="post" class="searchform" action="javascript:void(0)">
-                <p>
-                    <input type="text" name="search_query" class="textbox" />
-                    <input type="submit" name="search" class="button" value="Search" />
-                </p>
-            </form>
-            <ul>
-                <li id="current"><a href="javascript:void(0)"><span>Главная</span></a></li>
-            </ul>
-            *@
-            <div class="wise-words">
-                <p>&quot;@randomQuote.Text&quot;<br>@randomQuote.Author</p>
+            <div class="picture-film">
+                @{ Html.RenderAction("RandomAlbumsPicturesHeader", "Photogallery", new { area = string.Empty }); }
+            </div>
+            <div class="opinion">
+                <img class="photo" src="@randomOpinion.Thumbnail">
+                <div class="response">@randomOpinion.Text</div>
             </div>
         </div>
         <div id="content-wrap">
+            <a href="~/" class="logo-link">
+                <h1 id="logo"><span class="green">soul</span>travel</h1>
+                <h2 id="slogan">путешествия со смыслом<br>
+                    путешествия для души</h2>
+            </a>
             <img src="~/Content/img/headerphoto.jpg" class="no-border" />
             <div id="sidebar">
                 <ul class="sidemenu">
                     @Html.BuildMainMenuItems(Url, (string)ViewBag.ActiveMainMenuItemTitle)
                 </ul>
+                <div class="wise-words">
+                    <p>&quot;@randomQuote.Text&quot;</p>
+                    <div class="author">@randomQuote.Author</div>
+                </div>
             </div>
             <div id="main">
                 @RenderBody()
