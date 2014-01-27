@@ -182,6 +182,7 @@
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\Admin\Controllers\BooksController.cs" />
     <Compile Include="Areas\Admin\Views\Articles\ArticlesVM.cs" />
     <Compile Include="Areas\Admin\Views\Articles\EditArticleVM.cs" />
     <Compile Include="Areas\Admin\Views\Articles\SaveArticleVM.cs" />
@@ -930,6 +931,10 @@
     <Content Include="Content\js\webshims\js-webshim\minified\shims\styles\scss\forms-ext.scss" />
     <Content Include="Content\js\webshims\js-webshim\minified\shims\styles\scss\shim.scss" />
     <Content Include="Content\js\webshims\js-webshim\minified\shims\styles\scss\_extends.scss" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Books\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Books\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Books\Index.cshtml" />
     <None Include="Properties\PublishProfiles\soultravelProfile.pubxml" />
     <Content Include="Views\Photogallery\RandomAlbumsPicturesHeader.cshtml" />
     <Content Include="Views\Shared\TimezoneCookieAdder.cshtml" />

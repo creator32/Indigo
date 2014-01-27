@@ -18,7 +18,7 @@ namespace TravelerPortal.WebUI.Areas.Admin
                 "admin",
                 new { controller = "Articles", action = "Articles" }
             );
-
+            #region Article
             context.MapRoute("AdminEditArticle",
                 "admin/article/{articleId}/edit",
                 new { controller = "Articles", action = "EditArticle" }
@@ -37,6 +37,11 @@ namespace TravelerPortal.WebUI.Areas.Admin
             context.MapRoute("AdminPreviewDetailedArticle",
                 "admin/article/{articleId}/preview-detailed",
                 new { controller = "Articles", action = "PreviewDetailedArticle" }
+            );
+            #endregion
+            context.MapRoute("AdminBooks",
+                "admin/books/{action}",
+                new { controller = "Books", action = "Index" }
             );
         }
     }
