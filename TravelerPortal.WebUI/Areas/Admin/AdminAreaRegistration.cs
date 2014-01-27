@@ -43,6 +43,10 @@ namespace TravelerPortal.WebUI.Areas.Admin
                 "admin/books/{action}",
                 new { controller = "Books", action = "Index" }
             );
+            context.MapRoute("AdminNews",
+                "admin/news/{action}",
+                new { controller = "News", action = "Index" }
+            );
         }
     }
 }

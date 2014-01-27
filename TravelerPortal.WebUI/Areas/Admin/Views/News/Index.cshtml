@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TravelerPortal.Data.News>
+
+<table class="table table-bordered">
+    <tr>
+        <th>№</th>
+        <th>Название</th>
+        <th>Активность</th>
+        <th>Добавлено</th>
+    </tr>
+    @foreach (var news in Model)
+    {
+        <tr>
+            <td>@news.Id</td>
+            <td><a href="@Url.RouteUrl("AdminNews", new { action = "Edit", id = news.Id })">@news.Name</a></td>
+            <td>@news.IsActive</td>
+            <td>@news.Created</td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

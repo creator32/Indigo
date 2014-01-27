@@ -6,13 +6,13 @@ using TravelerPortal.Data;
 
 namespace TravelerPortal.WebUI.Areas.Admin.Controllers
 {
-    public class BooksController : Controller
+    public class NewsController : Controller
     {
         private SoulTravelEntities db = new SoulTravelEntities();
 
         public ActionResult Index()
         {
-            return View(db.Books.ToList());
+            return View(db.News.ToList());
         }
 
         public ActionResult Create()
@@ -22,15 +22,15 @@ namespace TravelerPortal.WebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Book book)
+        public ActionResult Create(News news)
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                db.News.Add(news);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(book);
+            return View(news);
         }
 
         public ActionResult Edit(int? id)
@@ -39,25 +39,25 @@ namespace TravelerPortal.WebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            News news = db.News.Find(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(news);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Book book)
+        public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(news).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(book);
+            return View(news);
         }
 
         protected override void Dispose(bool disposing)
